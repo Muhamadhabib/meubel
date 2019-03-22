@@ -2,4 +2,4 @@
 Tugas PPL
 ###################
 
-Web untuk manajemen penjualan & kredit toko mebel
+Web untuk manajemen penjualan & kredit toko meubel
