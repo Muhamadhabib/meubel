@@ -67,17 +67,92 @@
 
         <!-- Widgets -->
         <div class="row clearfix">
-            <div class="col-lg-4 col-sm-6 col-xs-12">               
-                <div class="info-box bg-pink hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">store</i>
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <i class="material-icons md-48">list</i>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <p class="announcement-heading">21</p>
+                                <p class="announcement-text">Jumlah Data Kredit</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content">
-                        <div class="text">PENJUALAN</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
+                <a href="<?= base_url();?>kredit">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Data Kredit
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <i class="material-icons">subdirectory_arrow_right</i>
+                            </div>
+                        </div>
                     </div>
+                </a>
                 </div>
             </div>
+            
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="panel panel-alert">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <i class="material-icons md-48">store</i>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <p class="announcement-heading">21</p>
+                                <p class="announcement-text">Jumlah Data Penjualan</p>
+                            </div>
+                        </div>
+                    </div>
+                <a href="<?= base_url();?>home/penjualan">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Data Penjualan
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <i class="material-icons">subdirectory_arrow_right</i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <i class="material-icons md-48">description</i>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <p class="announcement-heading">21</p>
+                                <p class="announcement-text">Jumlah Data Laporan</p>
+                            </div>
+                        </div>
+                    </div>
+                <a href="<?= base_url();?>laporan">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Data Laporan
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <i class="material-icons">subdirectory_arrow_right</i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+            </div>
+            
+
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-indigo hover-expand-effect">
                     <div class="icon">

@@ -39,7 +39,39 @@
 
 <!-- Demo Js -->
 <script src="<?= base_url();?>asset/js/demo.js"></script>
+
+<!-- Bootstrap Colorpicker Js -->
+<script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+<!-- Dropzone Plugin Js -->
+<script src="../../plugins/dropzone/dropzone.js"></script>
+
+<!-- Input Mask Plugin Js -->
+<script src="../../plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+<!-- Multi Select Plugin Js -->
+<script src="../../plugins/multi-select/js/jquery.multi-select.js"></script>
+
+<!-- Jquery Spinner Plugin Js -->
+<script src="../../plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+<!-- Bootstrap Tags Input Plugin Js -->
+<script src="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+<!-- noUISlider Plugin Js -->
+<script src="../../plugins/nouislider/nouislider.js"></script>
+
+<!-- Custom Js -->
+<script src="<?= base_url();?>asset/js/pages/forms/advanced-form-elements.js"></script>
+<script src="<?= base_url();?>asset/js/pages/forms/basic-form-elements.js"></script>
+<script src="<?= base_url();?>asset/js/pages/forms/editors.js"></script>
 <script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
+<script src="<?= base_url();?>asset/js/pages/forms/form-wizard.js"></script>
+
+SweetAlert Plugin Js 
+<!-- <script src="<?= base_url();?>asset/plugins/sweetalert/sweetalert.min.js"></script> -->
+
+<!-- <script src="<?= base_url();?>asset/js/pages/ui/dialogs.js"></script> -->
 
 </body>
 
