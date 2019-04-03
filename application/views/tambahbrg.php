@@ -6,7 +6,7 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li>
-                    <a href="<?=base_url()home;?>">
+                    <a href="<?=base_url();?>home">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
@@ -39,6 +39,12 @@
                     <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">view_column</i>
+                        <span>Jenis</span>
                     </a>
                 </li>
                 <li>
@@ -133,6 +139,7 @@
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <input type="text" class="form-control" id="nama" name="nama" />
+                                            <label class="form-label">Nama Barang</label>
                                         </div>
                                     </div>
                                     <div class="form-group form-float">
@@ -171,61 +178,7 @@
                         </form>
                     </div>
                 </div>
-                                    
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" id="nama" name="nama" required/>
-                                            <label class="form-label">Nama Barang</label>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <textarea rows="4" class="form-control no-resize" id="desk" name="desk" required></textarea>
-                                            <label class="form-label">Deskripsi</label>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                        <!-- <footer>Jenis Barang</footer> -->
-                                            <select class="form-control show-tick" name="jenis" id="jenis">
-                                                <?php foreach($data as $d): ?>
-                                                <option value="<?= $d['id_jenis'];?>"><?=$d['nama_jenis'];?></option>
-                                                <?php endforeach;?>
-                                            </select> 
-                                            <label class="form-label">Jenis Barang</label>
-                                        </div>
-                                    </div>
-                                
-                        
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="number" class="form-control" id="stok" name="stok" required>
-                                            <label class="form-label">Stok Barang</label>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="number" class="form-control" id="h_beli" name="h_beli" required>
-                                            <label class="form-label">Harga Beli</label>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="number" class="form-control" id="h_jual" name="h_jual" required>
-                                            <label class="form-label">Harga Jual</label>
-                                        </div>
-                                    </div>
-                                
-                                    <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                            </form>
-                        </div>
-                    </div>
             </div>
         </div>
-
     </div>
 </section>

@@ -43,7 +43,7 @@
                 </li>
                 <li>
                     <a href="<?=base_url();?>jenis">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons">view_column</i>
                         <span>Jenis</span>
                     </a>
                 </li>
@@ -68,36 +68,17 @@
 
         <!-- Widgets -->
         <div class="row clearfix">
-            <div class="col-lg-4 col-sm-6 col-xs-12">               
-                <div class="info-box bg-pink hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">store</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">PENJUALAN</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-indigo hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">receipt</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">KREDIT</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div
 
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
-                                <i class="material-icons md-48">list</i>
+                                <i class="material-icons md-48">receipt</i>
                             </div>
                             <div class="col-xs-6 text-right">
                                 <p class="announcement-heading">21</p>
-                                <p class="announcement-text">Jumlah Data<br>Kredit</p>
+                                <p class="announcement-text">Jumlah Data Kredit</p>
                             </div>
                         </div>
                     </div>
@@ -115,14 +96,6 @@
                 </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-cyan hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">list</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">BARANG</div>
-                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
 
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="panel panel-alert">
@@ -151,33 +124,6 @@
                 </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-light-green hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">person</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">PELANGGAN</div>
-                        <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">shopping_cart</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">TRANSAKSI</div>
-                        <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-teal hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">description</i>
-                    </div>
 
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="panel panel-success">
@@ -206,19 +152,9 @@
                 </a>
                 </div>
             </div>
-            
 
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-indigo hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">receipt</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">KREDIT</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
+            <!--  -->
+
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-cyan hover-expand-effect">
                     <div class="icon">
@@ -226,44 +162,12 @@
                     </div>
                     <div class="content">
                         <div class="text">BARANG</div>
-                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-light-green hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">person</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">PELANGGAN</div>
-                        <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">shopping_cart</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">TRANSAKSI</div>
-                        <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-teal hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">description</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">LAPORAN</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <!--  -->
+            
         <!-- #END# Widgets -->
         
     </div>

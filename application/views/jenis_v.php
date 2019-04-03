@@ -23,7 +23,6 @@
                     </a>
                 </li>
                 <li>
-                <li class="active">
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -45,6 +44,12 @@
                     <a href="<?=base_url();?>penjualan">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">view_column</i>
+                        <span>Jenis</span>
                     </a>
                 </li>
                 <li>

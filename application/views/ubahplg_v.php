@@ -42,6 +42,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">view_column</i>
+                        <span>Jenis</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?=base_url();?>laporan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
@@ -57,7 +63,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>TAMBAH DATA BARANG</h2>
+            <h2>UBAH DATA PELANGGAN</h2>
         </div>
 
         <?php foreach($plg as $p) : ?>
@@ -65,6 +71,9 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
+                    <div class="header">
+                        <a href="<?= base_url(); ?>pelanggan"class="btn btn-warning waves-effect">Kembali</a>
+                    </div>
                     <div class="body">
 
                         <form id="form_validation" action="<?= base_url();?>pelanggan/edit/<?= $p['id_plg']; ?>" method="POST">

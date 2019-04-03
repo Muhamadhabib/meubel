@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                <li class="active">
+                <li>
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -45,6 +45,12 @@
                     <a href="<?=base_url();?>penjualan">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">view_column</i>
+                        <span>Jenis</span>
                     </a>
                 </li>
                 <li>
@@ -70,7 +76,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        
+                    <a href="<?= base_url(); ?>jenis"class="btn btn-warning waves-effect">Kembali</a>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

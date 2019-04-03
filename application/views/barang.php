@@ -42,6 +42,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">view_column</i>
+                        <span>Jenis</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?=base_url();?>laporan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
