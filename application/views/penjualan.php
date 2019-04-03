@@ -120,3 +120,11 @@
         <p><?php echo form_submit('', 'Update your Cart'); ?></p>
     </div>
 </section>
+
+
+<div class="row clearfix js-sweetalert">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <p>A warning message, with a function attached to the <b>Confirm</b> button...</p>
+        <button class="btn btn-primary waves-effect" data-type="confirm">CLICK ME</button>
+    </div>
+</div>
