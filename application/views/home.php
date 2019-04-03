@@ -48,6 +48,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">shopping_cart</i>
+                        <span>Jenis</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?=base_url();?>penjualan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>

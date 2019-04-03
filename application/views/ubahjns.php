@@ -11,7 +11,6 @@
                     </a>
                 </li>
                 <li>
-                <li class="active">
                     <a href="<?=base_url(); ?>penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
@@ -24,6 +23,7 @@
                     </a>
                 </li>
                 <li>
+                <li class="active">
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -63,60 +63,47 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>PENJUALAN</h2>
+            <h2>Ubah Jenis Barang</h2>
         </div>
 
-        <?php echo form_open('path/to/controller/update/method'); ?>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <?php foreach($data as $d) : ?>
+                        <form id="form_validation" action="<?= base_url();?>jenis/edit/<?= $d['id_jenis']; ?>" method="POST">
+                        <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" value="<?= $d['nama_jenis'] ?>" id="nama_jenis" name="nama_jenis" />
+                                            <label class="form-label">Jenis Barang</label>
+                                        </div>
+                                    </div>
+                                   
+                            
+                                    <?php endforeach;?>
+                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0">
-
-        <tr>
-                <th>QTY</th>
-                <th>Item Description</th>
-                <th style="text-align:right">Item Price</th>
-                <th style="text-align:right">Sub-Total</th>
-        </tr>
-
-        <?php $i = 1; ?>
-
-        <?php foreach ($this->cart->contents() as $items): ?>
-
-                <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
-
-                <tr>
-                        <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
-                        <td>
-                                <?php echo $items['name']; ?>
-
-                                <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
-
-                                        <p>
-                                                <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
-
-                                                        <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
-
-                                                <?php endforeach; ?>
-                                        </p>
-
-                                <?php endif; ?>
-
-                        </td>
-                        <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
-                        <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
-                </tr>
-
-        <?php $i++; ?>
-
-        <?php endforeach; ?>
-
-        <tr>
-                <td colspan="2"> </td>
-                <td class="right"><strong>Total</strong></td>
-                <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
-        </tr>
-
-        </table>
-
-        <p><?php echo form_submit('', 'Update your Cart'); ?></p>
     </div>
 </section>
