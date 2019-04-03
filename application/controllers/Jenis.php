@@ -9,7 +9,7 @@
         public function index(){
             $data['jns'] = $this->M_admin->get_jenis();
             $this->load->view("header");
-            $this->load->view("jenis",$data);
+            $this->load->view("jenis_v",$data);
             $this->load->view("footer");
         }
         public function tambah(){
