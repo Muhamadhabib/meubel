@@ -112,21 +112,6 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="body">
                         <form id="form_validation" action="<?= base_url();?>barang/input/" method="POST">
                             <!-- <div class="form-group form-float">
@@ -137,47 +122,58 @@
                             </div> -->
                             <div class="row clearfix">
                                 <div class="col-sm-12">
+                                    
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="nama" name="nama" />
+                                            <input type="text" class="form-control" id="nama" name="nama" required/>
+                                            <label class="form-label">Nama Barang</label>
                                         </div>
                                     </div>
+                                
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <textarea rows="4" class="form-control no-resize" id="desk" name="desk"></textarea>
+                                            <textarea rows="4" class="form-control no-resize" id="desk" name="desk" required></textarea>
                                             <label class="form-label">Deskripsi</label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <select class="form-control" name="jenis" id="jenis">
-                                            <?php foreach($data as $d): ?>
-                                            <option value="<?= $d['id_jenis'];?>"><?=$d['nama_jenis'];?></option>
-                                            <?php endforeach;?>
-                                        </select>
+                                
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                        <footer>Jenis Barang</footer>
+                                            <select class="form-control show-tick" name="jenis" id="jenis">
+                                                <?php foreach($data as $d): ?>
+                                                <option value="<?= $d['id_jenis'];?>"><?=$d['nama_jenis'];?></option>
+                                                <?php endforeach;?>
+                                            </select> 
+                                        </div>
                                     </div>
-                            
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="stok" name="stok" required>
-                                    <label class="form-label">Stok Barang</label>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="h_beli" name="h_beli" required>
-                                    <label class="form-label">Harga Beli</label>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="h_jual" name="h_jual" required>
-                                    <label class="form-label">Harga Jual</label>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                        </form>
+                                
+                        
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="stok" name="stok" required>
+                                            <label class="form-label">Stok Barang</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="h_beli" name="h_beli" required>
+                                            <label class="form-label">Harga Beli</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="h_jual" name="h_jual" required>
+                                            <label class="form-label">Harga Jual</label>
+                                        </div>
+                                    </div>
+                                
+                                    <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
 
