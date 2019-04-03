@@ -25,6 +25,9 @@
     <!-- Morris Chart Css-->
     <link href="<?= base_url();?>asset/plugins/morrisjs/morris.css" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="<?= base_url();?>asset/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="<?= base_url();?>asset/css/style.css" rel="stylesheet">
 
