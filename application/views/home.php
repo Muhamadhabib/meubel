@@ -30,25 +30,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">store</i>
+                    <a href="<?=base_url();?>pelanggan">
+                        <i class="material-icons">person</i>
                         <span>Pelanggan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">person</i>
-                        <span>Penjualan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>laporan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
                     </a>
