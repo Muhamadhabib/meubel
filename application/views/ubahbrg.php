@@ -5,13 +5,14 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                    <a href="<?=base_url(); ?>">
+                <li>
+                    <a href="<?=base_url();?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url(); ?>penjualan">
+                    <a href="<?=base_url();?>home/penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
                     </a>
@@ -22,7 +23,6 @@
                         <span>Kredit</span>
                     </a>
                 </li>
-                <li>
                 <li class="active">
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
@@ -30,25 +30,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">store</i>
+                    <a href="<?=base_url();?>pelanggan">
+                        <i class="material-icons">person</i>
                         <span>Pelanggan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">person</i>
-                        <span>Penjualan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>laporan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
                     </a>
@@ -63,7 +57,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Ubah Data Barang</h2>
+            <h2>UBAH DATA BARANG</h2>
         </div>
 
         <!-- <div class="row clearfix">
@@ -139,7 +133,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $d['nama_brg']; ?>"/>
+                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $d['nama_brg']; ?>" required>
                                             <label class="form-label">Nama Barang</label>
                                         </div>
                                     </div>

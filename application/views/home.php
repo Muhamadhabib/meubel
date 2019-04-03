@@ -30,19 +30,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">store</i>
+                    <a href="<?=base_url();?>pelanggan">
+                        <i class="material-icons">person</i>
                         <span>Pelanggan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">person</i>
-                        <span>Penjualan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
                     </a>
@@ -92,7 +86,7 @@
                     </div>
                     <div class="content">
                         <div class="text">KREDIT</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div
 
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
