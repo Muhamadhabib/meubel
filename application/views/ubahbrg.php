@@ -127,14 +127,14 @@
                         </ul>
                     </div>
                     <div class="body">
-                        <form id="form_validation" action="<?= base_url();?>barang/edit/" method="POST">
+                        <?php foreach($data as $d) : ?>
+                        <form id="form_validation" action="<?= base_url();?>barang/edit/<?= $d['id_brg']; ?>" method="POST">
                             <!-- <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" id="nama" name="nama" required>
                                     <label class="form-label">Nama Barang</label>
                                 </div>
                             </div> -->
-                            <?php foreach($data as $d) : ?>
                             <div class="row clearfix">
                                 <div class="col-sm-12">
                                     <div class="form-group form-float">
