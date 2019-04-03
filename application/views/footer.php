@@ -39,6 +39,13 @@
 
 <!-- Demo Js -->
 <script src="<?= base_url();?>asset/js/demo.js"></script>
+<script src="<?= base_url();?>asset/js/sweetalert2.all.min.js"></script>
+<script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
+<script src="<?= base_url();?>asset/plugins/sweetalert/sweetalert.min.js"></script>
+
+
+<script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
+
 
 <!-- Bootstrap Colorpicker Js -->
 <script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
@@ -69,9 +76,10 @@
 <script src="<?= base_url();?>asset/js/pages/forms/form-wizard.js"></script>
 
 SweetAlert Plugin Js 
-<!-- <script src="<?= base_url();?>asset/plugins/sweetalert/sweetalert.min.js"></script> -->
+<!-- <script src="<?= base_url();?>asse/plugins/sweetalert/sweetalert.min.js"></script> -->
 
 <!-- <script src="<?= base_url();?>asset/js/pages/ui/dialogs.js"></script> -->
+
 
 </body>
 
