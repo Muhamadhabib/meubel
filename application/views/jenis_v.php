@@ -5,6 +5,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
+                <li >
                     <a href="<?=base_url(); ?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>
@@ -23,28 +24,27 @@
                     </a>
                 </li>
                 <li>
-                <li class="active">
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">store</i>
+                    <a href="<?=base_url();?>pelanggan">
+                        <i class="material-icons">person</i>
                         <span>Pelanggan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">person</i>
-                        <span>Penjualan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">shopping_cart</i>
+                        <span>Jenis</span>
                     </a>
                 </li>
                 <li>

@@ -70,8 +70,8 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        
+                <div class="header">
+                        <a href="<?= base_url(); ?>jenis"class="btn btn-warning waves-effect">Kembali</a>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -96,11 +96,8 @@
                                             <label class="form-label">Jenis Barang</label>
                                         </div>
                                     </div>
-                                   
-                                   
-                           
-                         
-            
+                                </div>
+                            </div>
                             <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                         </form>
                     </div>

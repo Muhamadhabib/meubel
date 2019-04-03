@@ -5,14 +5,14 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li>
-                    <a href="<?=base_url();?>">
+                <li >
+                    <a href="<?=base_url(); ?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="<?=base_url();?>home/penjualan">
+                    <a href="<?=base_url(); ?>penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
                     </a>
@@ -24,7 +24,6 @@
                     </a>
                 </li>
                 <li>
-                <li >
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -43,7 +42,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>laporan">
+                    <a href="<?=base_url();?>jenis">
+                        <i class="material-icons">shopping_cart</i>
+                        <span>Jenis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?=base_url();?>penjualan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
                     </a>
