@@ -5,6 +5,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
+                <li>
                     <a href="<?=base_url(); ?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>

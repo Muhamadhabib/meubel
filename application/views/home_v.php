@@ -6,13 +6,13 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
-                    <a href="<?=base_url();?>">
+                    <a href="<?=base_url(); ?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>home/penjualan">
+                    <a href="<?=base_url(); ?>penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
                     </a>
@@ -59,6 +59,7 @@
     </aside>
     <!-- #END# Left Sidebar -->
 </section>
+
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">

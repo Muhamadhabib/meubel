@@ -39,7 +39,10 @@
 
 <!-- Demo Js -->
 <script src="<?= base_url();?>asset/js/demo.js"></script>
+<script src="<?= base_url();?>asset/js/sweetalert2.all.min.js"></script>
 <script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
+<script src="<?= base_url();?>asset/plugins/sweetalert/sweetalert.min.js"></script>
+
 
 </body>
 

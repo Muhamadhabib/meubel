@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Toko Meubel</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -59,12 +59,16 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">BUKAN TOKO TEBU</a>
+                <a class="navbar-brand" href="<?= base_url(); ?>home">BUKAN TOKO TEBU</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a title="Sign Out" href="javascript:void(0);"><i class="material-icons">input</i></a></li>
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <li>
+                        <a title="Log Out" href="<?= base_url();?>login/logout">
+                            <i class="material-icons">input</i>
+                        </a>
+                    </li>
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
                 </ul>
             </div>
         </div>
@@ -73,7 +77,7 @@
 
     <section>
         <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
+        <!-- <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
                 <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
@@ -213,6 +217,6 @@
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside> -->
         <!-- #END# Right Sidebar -->
     </section>
