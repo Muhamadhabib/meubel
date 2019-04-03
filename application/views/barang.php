@@ -96,6 +96,7 @@
                         <thead>
                             <tr>
                             <th scope="col">No.</th>
+                            <th scope="col">Kode</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Jenis Barang</th>
                             <th scope="col">Deskripsi</th>
@@ -109,6 +110,7 @@
                         <?php $n = 1; foreach($brg as $b) : ?>
                             <tr>
                             <td><?= $n++; ?></td>
+                            <td><?= $b['id_brg']; ?></td>
                             <td><?= $b['nama_brg'];?></td>
                             <td><?= $b['nama_jenis'];?></td>
                             <td><?= $b['deskripsi'];?></td>

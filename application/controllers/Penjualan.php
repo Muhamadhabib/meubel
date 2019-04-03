@@ -6,7 +6,7 @@
         }
         public function index(){
             $this->load->view("header");
-            $this->load->view("penjualan_v");
+            $this->load->view("penjualan");
             $this->load->view("footer");
         }
     }

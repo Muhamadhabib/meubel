@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-xs-6 text-right">
                                 <p class="announcement-heading">21</p>
-                                <p class="announcement-text">Jumlah Data Kredit</p>
+                                <p class="announcement-text">Jumlah Data<br>Kredit</p>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                <a href="<?= base_url();?>home/penjualan">
+                <a href="<?= base_url();?>penjualan">
                     <div class="panel-footer announcement-bottom">
                         <div class="row">
                             <div class="col-xs-6">

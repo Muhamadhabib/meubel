@@ -112,7 +112,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        
+                        <a href="<?= base_url(); ?>barang"class="btn btn-warning waves-effect">Kembali</a>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -145,38 +145,40 @@
                                     </div>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <textarea rows="4" class="form-control no-resize" id="desk" name="desk" value="<?= $d['deskripsi']; ?>"></textarea>
+                                            <textarea rows="4" class="form-control no-resize" id="desk" name="desk" value="<?= $d['deskripsi']; ?>"><?= $d['deskripsi']; ?></textarea>
                                             <label class="form-label">Deskripsi</label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <select class="form-control" name="jenis" id="jenis">
-                                            <?php foreach($jenis as $j): ?>
-                                            <option value="<?= $j['id_jenis'];?>"><?=$j['nama_jenis'];?></option>
-                                            <?php endforeach;?>
-                                        </select>
+                                    <div class="form-group ">
+                                        <div class="form-line">
+                                            <select class="form-control" name="jenis" id="jenis">
+                                                <?php foreach($jenis as $j): ?>
+                                                <option value="<?= $j['id_jenis'];?>"><?=$j['nama_jenis'];?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        <label class="form-label">Jenis Barang</label>
+                                        </div>
                                     </div>
-                            
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="stok" name="stok" value="<?= $d['stok_brg']; ?>" required>
-                                    <label class="form-label">Stok Barang</label>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="h_beli" name="h_beli" value="<?= $d['harga_beli']; ?>" required>
-                                    <label class="form-label">Harga Beli</label>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="h_jual" name="h_jual" value="<?= $d['harga_jual']; ?>" required>
-                                    <label class="form-label">Harga Jual</label>
-                                </div>
-                            </div>
-                            <?php endforeach;?>
-                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="stok" name="stok" value="<?= $d['stok_brg']; ?>" required>
+                                            <label class="form-label">Stok Barang</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="h_beli" name="h_beli" value="<?= $d['harga_beli']; ?>" required>
+                                            <label class="form-label">Harga Beli</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="h_jual" name="h_jual" value="<?= $d['harga_jual']; ?>" required>
+                                            <label class="form-label">Harga Jual</label>
+                                        </div>
+                                    </div>
+                        <?php endforeach;?>
+                        <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                         </form>
                     </div>
                 </div>

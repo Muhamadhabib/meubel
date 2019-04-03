@@ -10,7 +10,6 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li>
                 <li class="active">
                     <a href="<?=base_url(); ?>penjualan">
                         <i class="material-icons">store</i>
@@ -24,6 +23,7 @@
                     </a>
                 </li>
                 <li>
+                <li >
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -63,68 +63,56 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>PENJUALAN</h2>
+            <h2>Data Penjualan</h2>
         </div>
 
-        <?php echo form_open('path/to/controller/update/method'); ?>
+        <?php if ($this->session->flashdata('input')) : ?>
+            <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>berhasil</strong> <?= $this->session->flashdata('input'); ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('hapus')) : ?>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
+            </div>
+        <?php endif; ?>
 
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0">
+        <!-- <a href="<?= base_url();?>barang/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a> -->
+        <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->
 
-        <tr>
-                <th>QTY</th>
-                <th>Item Description</th>
-                <th style="text-align:right">Item Price</th>
-                <th style="text-align:right">Sub-Total</th>
-        </tr>
+        <div class="row clearfix p-t-10">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                    <!-- <button type="button" class="btn bg-default btn-s waves-effect">PRINT</button> -->
+                    <button type="button" class="btn btn-default waves-effect">
+                        <i class="material-icons">print</i>
+                    </button>
+                    </div>
+                    <div class="body">
+                        <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Jenis Barang</th>
+                            <th scope="col">Deskripsi</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col">Harga Beli</th>
+                            <th scope="col">Harga Jual</th>
+                            <th scope="col">Operasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <?php $i = 1; ?>
-
-        <?php foreach ($this->cart->contents() as $items): ?>
-
-                <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
-
-                <tr>
-                        <td><?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
-                        <td>
-                                <?php echo $items['name']; ?>
-
-                                <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
-
-                                        <p>
-                                                <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
-
-                                                        <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
-
-                                                <?php endforeach; ?>
-                                        </p>
-
-                                <?php endif; ?>
-
-                        </td>
-                        <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
-                        <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
-                </tr>
-
-        <?php $i++; ?>
-
-        <?php endforeach; ?>
-
-        <tr>
-                <td colspan="2"> </td>
-                <td class="right"><strong>Total</strong></td>
-                <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
-        </tr>
-
-        </table>
-
-        <p><?php echo form_submit('', 'Update your Cart'); ?></p>
     </div>
 </section>
-
-
-<div class="row clearfix js-sweetalert">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <p>A warning message, with a function attached to the <b>Confirm</b> button...</p>
-        <button class="btn btn-primary waves-effect" data-type="confirm">CLICK ME</button>
-    </div>
-</div>
