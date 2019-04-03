@@ -1,8 +1,9 @@
 <?php
     class M_admin extends CI_model{
         public function input($data){
-            $this->db->insert('barang',$data);
+            $this->db->insert('barang', $data);
         }
+        //misc
         public function get_jenis(){
             return $this->db->get('jenis')->result_array();
         }
@@ -12,6 +13,7 @@
             $this->db->join('jenis', 'jenis.id_jenis = barang.id_jenis');
             return $this->db->get()->result_array();
         }
+        //barang
         public function get_barang(){
             return $this->db->get('barang')->result_array();
         }
@@ -26,6 +28,25 @@
         public function get_IdBarang($id){
             $this->db->where('id_brg', $id);
             return $this->db->get('barang')->result_array();
+        }
+        //pelangan
+        public function get_plg(){
+            return $this->db->get('pelanggan')->result_array();
+        }
+        public function input_plg($data){
+            $this->db->insert('pelanggan', $data);
+        }
+        public function ubah_plg($id, $data){
+            $this->db->where('id_plg', $id);
+            $this->db->update('pelanggan', $data);
+        }
+        public function delete_plg($id){
+            $this->db->where('id_plg', $id);
+            $this->db->delete('pelanggan');
+        }
+        public function get_IdPlg($id){
+            $this->db->where('id_plg', $id);
+            return $this->db->get('pelanggan')->result_array();
         }
 
     }

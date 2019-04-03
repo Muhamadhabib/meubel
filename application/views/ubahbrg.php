@@ -57,7 +57,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Ubah Data Barang</h2>
+            <h2>UBAH DATA BARANG</h2>
         </div>
 
         <!-- <div class="row clearfix">

@@ -53,6 +53,7 @@
     </aside>
     <!-- #END# Left Sidebar -->
 </section>
+
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -60,7 +61,7 @@
         </div>
 
         <!-- Widgets -->
-        <div class="row clearfix">
+        <div class="row clearfix p-t-10">
 
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
