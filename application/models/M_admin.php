@@ -16,7 +16,7 @@
             return $this->db->get('barang')->result_array();
         }
         public function ubah_barang($id, $data){
-            $this->db->where('id', $id);
+            $this->db->where('id_brg', $id);
             $this->db->update('barang', $data);
         }
         public function delete_barang($id){
@@ -25,7 +25,7 @@
         }
         public function get_IdBarang($id){
             $this->db->where('id_brg', $id);
-            return $this->db->get('barang')->row();
+            return $this->db->get('barang')->result_array();
         }
 
     }

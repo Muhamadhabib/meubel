@@ -116,7 +116,7 @@
                             <td><?= $b['harga_beli'];?></td>
                             <td><?= $b['harga_jual'];?></td>
                             <td>
-                                <a href="<?= base_url();?>/barang/ubah/<?= $b['id_brg'] ?>" class=" btn btn-warning btn-sm waves-effect"><i class="material-icons">mode_edit</i></a>
+                                <a href="<?= base_url();?>/barang/ubah/<?= $b['id_brg'] ?>" class=" btn btn-success btn-sm waves-effect"><i class="material-icons">mode_edit</i></a>
                                 <a href="<?= base_url();?>/barang/hapus/<?= $b['id_brg'] ?>" class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
                             </td>
                             </tr>

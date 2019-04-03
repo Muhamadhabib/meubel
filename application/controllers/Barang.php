@@ -18,6 +18,7 @@
             $this->load->view("tambahbrg",$data);
             $this->load->view("footer");
         }
+        //dari halaman tampilan barang ke halaman edit
         public function ubah($id){
             $data['data'] = $this->M_admin->get_IdBarang($id);
             $data['jenis'] = $this->M_admin->get_jenis();
@@ -38,8 +39,7 @@
             $this->session->set_flashdata('input','Ditambahkan');
             redirect('barang');
         }
-        public function edit(){
-            $id = $this->input->post('id_brg');
+        public function edit($id){
             $data = [
                 'nama_brg'  => $this->input->post('nama'),
                 'id_jenis' => $this->input->post('jenis'),
