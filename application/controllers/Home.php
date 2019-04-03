@@ -10,5 +10,15 @@
             $this->load->view("home");
             $this->load->view("footer");
         }
+        public function penjualan(){
+            $this->load->helper('form');
+
+            $this->load->view("header");
+            $this->load->view("penjualan");
+            $this->load->view("footer");
+        }
+        function update_cart(){
+            
+        }
     }
 ?>
