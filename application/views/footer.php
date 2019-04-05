@@ -23,6 +23,7 @@
 <!-- ChartJs -->
 <script src="<?= base_url();?>asset/plugins/chartjs/Chart.bundle.js"></script>
 
+
 <!-- Flot Charts Plugin Js -->
 <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.js"></script>
 <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.resize.js"></script>
@@ -75,10 +76,6 @@
 <script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
 <script src="<?= base_url();?>asset/js/pages/forms/form-wizard.js"></script>
 
-SweetAlert Plugin Js 
-<!-- <script src="<?= base_url();?>asse/plugins/sweetalert/sweetalert.min.js"></script> -->
-
-<!-- <script src="<?= base_url();?>asset/js/pages/ui/dialogs.js"></script> -->
 
 
 </body>

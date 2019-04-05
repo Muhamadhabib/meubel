@@ -23,7 +23,7 @@
                         <span>Transaksi</span>
                     </a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>
@@ -32,7 +32,7 @@
                         <li>
                             <a href="<?= base_url(); ?>penjualan/transaksi">Data Transaksi</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="<?= base_url(); ?>penjualan/pesanan">Data Pesanan</a>
                         </li>
                     </ul>
@@ -63,7 +63,7 @@
                         <span>Transaksi</span>
                     </a>
                 </li> -->
-                <li class="active">
+                <li>
                     <a href="<?=base_url();?>jenis">
                         <i class="material-icons">shopping_cart</i>
                         <span>Jenis</span>
@@ -87,50 +87,78 @@
     </aside>
     <!-- #END# Left Sidebar -->
 </section>
+
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Ubah Jenis Barang</h2>
+            <h2><?= $judul; ?></h2>
         </div>
 
-        <div class="row clearfix">
+        <?php if ($this->session->flashdata('input')) : ?>
+            <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>berhasil</strong> <?= $this->session->flashdata('input'); ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('hapus')) : ?>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- <a href="<?= base_url();?>barang/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a> -->
+        <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->
+
+        <div class="row clearfix p-t-10">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <a href="<?= base_url(); ?>jenis"class="btn btn-warning waves-effect">Kembali</a>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        
+                            <button type="button" class="btn btn-default waves-effect">
+                                <i class="material-icons">print</i>
+                            </button>
+                        
                     </div>
                     <div class="body">
-                        <?php foreach($data as $d) : ?>
-                        <form id="form_validation" action="<?= base_url();?>jenis/edit/<?= $d['id_jenis']; ?>" method="POST">
-                        <div class="row clearfix">
-                                <div class="col-sm-12">
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" value="<?= $d['nama_jenis'] ?>" id="nama_jenis" name="nama_jenis" />
-                                            <label class="form-label">Jenis Barang</label>
-                                        </div>
-                                    </div>
-                                   
-                            
-                                    <?php endforeach;?>
-                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                        </form>
+                        
+                        <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Kode Pesanan</th>
+                            <th scope="col">Nama Pelanggan</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Jumlah Barang</th>
+                            <th scope="col">SubTotal</th>
+                            <th scope="col">Operasi</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                        <?php $n = 1; foreach($trs as $b) : ?>
+                            <tr>
+                            <td><?= $n++; ?></td>
+                            <td><?= $b['id_psn']; ?></td>
+                            <td><?= $b['nm_plg'];?></td>
+                            <td><?= $b['nama_brg'];?></td>
+                            <td><?= $b['jml_brg'];?></td>
+                            <td><?= $b['sub_tot'];?></td>
+                            <td>
+                                <!-- <button type="submit" class=" btn btn-success btn-sm waves-effect">
+                                    <i class="material-icons">shopping_cart</i>
+                                </button> -->
+                                <a href="<?= base_url();?>" class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
+                            </td>
+                            </tr>
+                            </form>
+                        <?php endforeach; ?>
+                        </tbody>
+                        
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
