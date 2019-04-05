@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>home/penjualan">
+                    <a href="<?=base_url();?>penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
                     </a>

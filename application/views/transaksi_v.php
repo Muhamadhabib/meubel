@@ -6,13 +6,13 @@
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
                 <li>
-                    <a href="<?=base_url();?>">
+                    <a href="<?=base_url(); ?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>/penjualan">
+                    <a href="<?=base_url(); ?>penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
                     </a>
@@ -23,7 +23,7 @@
                         <span>Kredit</span>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -35,7 +35,7 @@
                         <span>Pelanggan</span>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
@@ -63,64 +63,51 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>DATA BARANG</h2>
+            <h2>TRANSAKSI</h2>
         </div>
-
-        <?php if ($this->session->flashdata('input')) : ?>
-            <div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Data <strong>berhasil</strong> <?= $this->session->flashdata('input'); ?>
-            </div>
-        <?php endif; ?>
-        <?php if ($this->session->flashdata('hapus')) : ?>
-            <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
-            </div>
-        <?php endif; ?>
-
-        <a href="<?= base_url();?>barang/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a>
-        <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->
 
         <div class="row clearfix p-t-10">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                     <!-- <button type="button" class="btn bg-default btn-s waves-effect">PRINT</button> -->
-                    <button type="button" class="btn btn-default waves-effect">
+                    <!-- <button type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
-                    </button>
+                    </button> -->
                     </div>
                     <div class="body">
+
+                    <form method="post">
+                        <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="cari" class="form-control" placeholder="Cari Transaksi">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Cari</button>
+                        </div>
+                    </form>
+
                         <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
                         <thead>
                             <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Kode</th>
-                            <th scope="col">Nama Barang</th>
-                            <th scope="col">Jenis Barang</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Stok</th>
-                            <th scope="col">Harga Beli</th>
-                            <th scope="col">Harga Jual</th>
-                            <th scope="col">Operasi</th>
+                            <th scope="col">Nama Pelanggan</th>
+                            <th scope="col">Tanggal Transaksi</th>
+                            <th scope="col">Total Barang</th>
+                            <th scope="col">Total Harga</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $n = 1; foreach($brg as $b) : ?>
+                        <?php $n = 1; foreach($data as $d) : ?>
                             <tr>
                             <td><?= $n++; ?></td>
-                            <td><?= $b['id_brg']; ?></td>
-                            <td><?= $b['nama_brg'];?></td>
-                            <td><?= $b['nama_jenis'];?></td>
-                            <td><?= $b['deskripsi'];?></td>
-                            <td><?= $b['stok_brg'];?></td>
-                            <td><?= $b['harga_beli'];?></td>
-                            <td><?= $b['harga_jual'];?></td>
-                            <td>
-                                <a href="<?= base_url();?>/barang/ubah/<?= $b['id_brg'] ?>" class=" btn btn-success btn-sm waves-effect"><i class="material-icons">mode_edit</i></a>
-                                <a href="<?= base_url();?>/barang/hapus/<?= $b['id_brg'] ?>" class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
-                            </td>
+                            <td><?= $d['nm_plg'];?></td>
+                            <td><?= $d['tgl_trans'];?></td>
+                            <td><?= $d['tot_brg'];?></td>
+                            <td><?= $d['tot_hrg'];?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

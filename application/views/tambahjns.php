@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>pelanggan">
                         <i class="material-icons">store</i>
                         <span>Pelanggan</span>
                     </a>
@@ -69,7 +69,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Tambah Data Jenis</h2>
+            <h2>TAMBAH JENIS BARANG</h2>
         </div>
 
 

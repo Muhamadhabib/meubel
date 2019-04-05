@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="<?=base_url();?>home/penjualan">
+                    <a href="<?=base_url();?>penjualan">
                         <i class="material-icons">store</i>
                         <span>Penjualan</span>
                     </a>
@@ -64,7 +64,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Data Penjualan</h2>
+            <h2>DATA PENJUALAN</h2>
         </div>
 
         <?php if ($this->session->flashdata('input')) : ?>

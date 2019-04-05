@@ -37,7 +37,6 @@
         public function edit($id){
             $data = [
                 'nama_jenis'  => $this->input->post('nama_jenis'),
-               
             ];
 
             $this->M_admin->ubah_jenis($id, $data);

@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url();?>penjualan">
+                    <a href="<?=base_url();?>laporan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
                     </a>
@@ -65,7 +65,6 @@
         <div class="block-header">
             <h2>DASHBOARD</h2>
         </div>
-
         <!-- Widgets -->
         <div class="row clearfix">
 

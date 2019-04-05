@@ -18,7 +18,7 @@
             $this->load->view("tambahbrg",$data);
             $this->load->view("footer");
         }
-        //dari halaman tampilan barang ke halaman edit
+        //fungsi untuk tombol dari halaman tampilan barang menuju halaman edit
         public function ubah($id){
             $data['data'] = $this->M_admin->get_IdBarang($id);
             $data['jenis'] = $this->M_admin->get_jenis();

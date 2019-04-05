@@ -70,6 +70,13 @@
             return $this->db->get('jenis')->result_array();
         }
 
+        //transaksi
+        public function get_trans(){
+            $this->db->select('*');
+            $this->db->from('pelanggan');
+            $this->db->join('transaksi', 'transaksi.id_plg = pelanggan.id_plg');
+            return $this->db->get()->result_array();
+        }
 
     }
 ?>
