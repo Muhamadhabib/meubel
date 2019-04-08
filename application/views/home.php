@@ -95,7 +95,7 @@
         </div>
 
         <!-- Widgets -->
-        
+        <div class="row">
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="<?= base_url();?>penjualan">
+                    <a href="<?= base_url();?>penjualan/transaksi">
                         <div class="panel-footer announcement-bottom">
                             <div class="row">
                                 <div class="col-xs-6">
@@ -161,7 +161,7 @@
                             </div>
                             <div class="col-xs-6 text-right">
                                 <p class="announcement-heading">21</p>
-                                <p class="announcement-text">Jumlah Data Laporan</p>
+                                <p class="announcement-text">Data <br> Laporan</p>
                             </div>
                         </div>
                     </div>
@@ -179,8 +179,9 @@
                     </a>
                 </div>
             </div>
-            
+        </div>
 
+        <div class="row">
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-indigo hover-expand-effect">
                     <div class="icon">
@@ -236,6 +237,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- #END# Widgets -->
         

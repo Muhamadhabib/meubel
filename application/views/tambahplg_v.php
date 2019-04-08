@@ -129,7 +129,7 @@
 
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                            <input type="tel" maxlength="13" pattern="[0-9]{8,}" class="form-control" id="no_hp" name="no_hp" required>
                                             <label class="form-label">No. HP</label>
                                         </div>
                                     </div>
