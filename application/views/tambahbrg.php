@@ -5,28 +5,10 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li>
-                    <a href="<?=base_url();?>home">
+                <li >
+                    <a href="<?=base_url(); ?>home">
                         <i class="material-icons">home</i>
                         <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=base_url();?>penjualan">
-                        <i class="material-icons">store</i>
-                        <span>Penjualan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?=base_url();?>kredit">
-                        <i class="material-icons">receipt</i>
-                        <span>Kredit</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="<?=base_url();?>barang">
-                        <i class="material-icons">list</i>
-                        <span>Barang</span>
                     </a>
                 </li>
                 <li>
@@ -35,12 +17,52 @@
                         <span>Pelanggan</span>
                     </a>
                 </li>
-                <li>
+                <li >
+                    <a href="<?=base_url(); ?>penjualan">
+                        <i class="material-icons">local_mall</i>
+                        <span>Transaksi</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">store</i>
+                        <span>Tunai</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="<?= base_url(); ?>penjualan/transaksi">Data Transaksi</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(); ?>penjualan/pesanan">Data Pesanan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">receipt</i>
+                        <span>Kredit</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="<?= base_url(); ?>kredit">Data Transaksi</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(); ?>kredit/pesanan">Data Pesanan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="<?=base_url();?>barang">
+                        <i class="material-icons">list</i>
+                        <span>Barang</span>
+                    </a>
+                </li>
+                <!-- <li>
                     <a href="<?=base_url();?>transaksi">
                         <i class="material-icons">shopping_cart</i>
                         <span>Transaksi</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?=base_url();?>jenis">
                         <i class="material-icons">view_column</i>
@@ -51,6 +73,12 @@
                     <a href="<?=base_url();?>laporan">
                         <i class="material-icons">description</i>
                         <span>Laporan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?=base_url();?>grafik">
+                        <i class="material-icons">show_chart</i>
+                        <span>Grafik</span>
                     </a>
                 </li>
             </ul>
@@ -148,36 +176,44 @@
                                             <label class="form-label">Deskripsi</label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <select class="form-control" name="jenis" id="jenis">
-                                            <?php foreach($data as $d): ?>
-                                            <option value="<?= $d['id_jenis'];?>"><?=$d['nama_jenis'];?></option>
-                                            <?php endforeach;?>
-                                        </select>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                        <!-- <footer>Jenis Barang</footer> -->
+                                            <select class="form-control show-tick" name="jenis" id="jenis">
+                                                <?php foreach($data as $d): ?>
+                                                <option value="<?= $d['id_jenis'];?>"><?=$d['nama_jenis'];?></option>
+                                                <?php endforeach;?>
+                                            </select> 
+                                            <label class="form-label">Jenis Barang</label>
+                                        </div>
                                     </div>
-                            
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="stok" name="stok" required>
-                                    <label class="form-label">Stok Barang</label>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="h_beli" name="h_beli" required>
-                                    <label class="form-label">Harga Beli</label>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="number" class="form-control" id="h_jual" name="h_jual" required>
-                                    <label class="form-label">Harga Jual</label>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                        </form>
+
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="stok" name="stok" required>
+                                            <label class="form-label">Stok Barang</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="h_beli" name="h_beli" required>
+                                            <label class="form-label">Harga Beli</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" id="h_jual" name="h_jual" required>
+                                            <label class="form-label">Harga Jual</label>
+                                        </div>
+                                    </div>
+                                
+                                    <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

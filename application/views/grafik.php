@@ -51,7 +51,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="<?=base_url();?>barang">
                         <i class="material-icons">list</i>
                         <span>Barang</span>
@@ -63,7 +63,6 @@
                         <span>Transaksi</span>
                     </a>
                 </li> -->
-                
                 <li>
                     <a href="<?=base_url();?>jenis">
                         <i class="material-icons">view_column</i>
@@ -76,7 +75,7 @@
                         <span>Laporan</span>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<?=base_url();?>grafik">
                         <i class="material-icons">show_chart</i>
                         <span>Grafik</span>
@@ -92,7 +91,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>DATA BARANG</h2>
+            <h2>Grafik</h2>
         </div>
 
         <?php if ($this->session->flashdata('input')) : ?>
@@ -108,55 +107,79 @@
             </div>
         <?php endif; ?>
 
-        <a href="<?= base_url();?>barang/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a>
-        <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->
+       
 
         <div class="row clearfix p-t-10">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                    <!-- <button type="button" class="btn bg-default btn-s waves-effect">PRINT</button> -->
-                    <button type="button" class="btn btn-default waves-effect">
-                        <i class="material-icons">print</i>
-                    </button>
-                    </div>
-                    <div class="body">
-                        <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
-                        <thead>
-                            <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Kode</th>
-                            <th scope="col">Nama Barang</th>
-                            <th scope="col">Jenis Barang</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Stok</th>
-                            <th scope="col">Harga Beli</th>
-                            <th scope="col">Harga Jual</th>
-                            <th scope="col">Operasi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php $n = 1; foreach($brg as $b) : ?>
-                            <tr>
-                            <td><?= $n++; ?></td>
-                            <td><?= $b['id_brg']; ?></td>
-                            <td><?= $b['nama_brg'];?></td>
-                            <td><?= $b['nama_jenis'];?></td>
-                            <td><?= $b['deskripsi'];?></td>
-                            <td><?= $b['stok_brg'];?></td>
-                            <td><?= $b['harga_beli'];?></td>
-                            <td><?= $b['harga_jual'];?></td>
-                            <td>
-                                <a href="<?= base_url();?>/barang/ubah/<?= $b['id_brg'] ?>" class=" btn btn-success btn-sm waves-effect"><i class="material-icons">mode_edit</i></a>
-                                <a href="<?= base_url();?>/barang/hapus/<?= $b['id_brg'] ?>" class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
-                            </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                        </table>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>CHART Barang</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                        <?php 
+                            foreach($brg as $c):
+                                $nama[] = $c['nama_brg'];
+                                $stok[] = $c['stok_brg'];
+                        ?>
+                            <script>
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: <?php echo json_encode($nama);?>,
+                                    datasets: [{
+                                        label: '# of Votes',
+                                        data: <?php echo json_encode($stok);?>,
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                            'rgba(255, 159, 64, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+                            </script>
+                            <?php 
+                                endforeach;
+                            ?>
+                            
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
 
     </div>
