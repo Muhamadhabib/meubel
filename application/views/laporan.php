@@ -65,7 +65,7 @@
                 </li> -->
                 <li>
                     <a href="<?=base_url();?>jenis">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons">view_column</i>
                         <span>Jenis</span>
                     </a>
                 </li>
@@ -130,18 +130,18 @@
                                 <td>1</td>
                                 <td>Barang</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/barang" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
-                    </button>
+                    </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Transaksi Tunai</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/transaksi_tunai" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
-                    </button>
+                    </a>
                                 </td>
                             </tr>
                             <tr>
@@ -157,9 +157,9 @@
                                 <td>4</td>
                                 <td>Pesanan Tunai</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/pesan_tunai" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
-                    </button>
+                    </a>
                                 </td>
                             </tr>
                             <tr>
@@ -175,9 +175,9 @@
                                 <td>6</td>
                                 <td>Data Pelanggan</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/pelanggan" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
-                    </button>
+                    </a>
                                 </td>
                             </tr>
                         </tbody>

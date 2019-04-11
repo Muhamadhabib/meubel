@@ -65,7 +65,7 @@
                 </li> -->
                 <li>
                     <a href="<?=base_url();?>jenis">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons">view_column</i>
                         <span>Jenis</span>
                     </a>
                 </li>
@@ -208,7 +208,7 @@
                             <td><?= $a['name'];?></td>
                             <td>
                                 <input type="hidden" value="<?= $a['rowid']; ?>" id="row" name="row">
-                                <input type="number" value="<?= $a['qty'];?>" id="qt" name="qt" style="width: 50px;">
+                                <input type="number" min="1" value="<?= $a['qty'];?>" id="qt" name="qt" style="width: 50px;">
                             </td>
                             <td>
                                 <?= 'Rp '.number_format($a['subtotal'],0,",",".");?>
@@ -245,7 +245,7 @@
                             <div class="form-line">
                                 <!-- <input type="text" id="email_address" class="form-control" placeholder="Enter your email address"> -->
                                 <select class="form-control " id="plg" name="plg" required>
-                                    <option value="">pilih nama </option>
+                                    <option value="">--pilih nama--</option>
                                     <?php foreach($plg as $c):?>
                                         <option value="<?= $c['id_plg']; ?>"><?= $c['nm_plg']; ?></option>
                                     <?php endforeach; ?>

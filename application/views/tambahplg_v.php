@@ -65,7 +65,7 @@
                 </li> -->
                 <li>
                     <a href="<?=base_url();?>jenis">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons">view_column</i>
                         <span>Jenis</span>
                     </a>
                 </li>
@@ -91,27 +91,17 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>TAMBAH DATA BARANG</h2>
+            <h2>TAMBAH DATA PELANGGAN</h2>
         </div>
 
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
+                
                     <div class="header">
-                            <a href="<?= base_url(); ?>pelanggan"class="btn btn-warning waves-effect">Kembali</a>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                        <a href="<?= base_url(); ?>pelanggan"class="btn btn-warning waves-effect">Kembali</a>
+                    </div>
+
                     <div class="body">
 
                         <form id="form_validation" action="<?= base_url();?>pelanggan/input/" method="POST">
@@ -129,7 +119,7 @@
 
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                                            <input type="tel" maxlength="13" pattern="[0-9]{8,}" class="form-control" id="no_hp" name="no_hp" required>
                                             <label class="form-label">No. HP</label>
                                         </div>
                                     </div>

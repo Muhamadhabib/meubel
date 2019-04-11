@@ -65,7 +65,7 @@
                 </li> -->
                 <li>
                     <a href="<?=base_url();?>jenis">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons">view_column</i>
                         <span>Jenis</span>
                     </a>
                 </li>
@@ -216,6 +216,5 @@
                     </div>
             </div>
         </div>
-
     </div>
 </section>

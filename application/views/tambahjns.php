@@ -65,7 +65,7 @@
                 </li> -->
                 <li class="active">
                     <a href="<?=base_url();?>jenis">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons">view_column</i>
                         <span>Jenis</span>
                     </a>
                 </li>
@@ -91,7 +91,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Tambah Data Jenis</h2>
+            <h2>TAMBAH JENIS BARANG</h2>
         </div>
 
 
