@@ -157,9 +157,9 @@
                                 <td>4</td>
                                 <td>Pesanan Tunai</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/pesan_tunai" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
-                    </button>
+                    </a>
                                 </td>
                             </tr>
                             <tr>

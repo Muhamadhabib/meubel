@@ -32,6 +32,14 @@
             $this->db->join('barang', 'barang.id_brg = pesan.id_brg');
             return $this->db->get()->result_array();
         }
+        //untuk laporan
+        public function get_psn2(){
+            $this->db->select('*');
+            $this->db->from('pesan');
+            $this->db->join('pelanggan', 'pelanggan.id_plg = pesan.id_plg');
+            $this->db->join('barang', 'barang.id_brg = pesan.id_brg');
+            return $this->db->get()->result();
+        }
         public function input_trans($data){
             $this->db->insert('trans', $data);
         }
