@@ -21,6 +21,10 @@
         public function get_barang(){
             return $this->db->get('barang')->result_array();
         }
+        //untuk laporan
+        public function get_barang2(){
+            return $this->db->get('barang')->result();
+        }
         public function ubah_barang($id, $data){
             $this->db->where('id_brg', $id);
             $this->db->update('barang', $data);
@@ -48,6 +52,10 @@
         //pelangan
         public function get_plg(){
             return $this->db->get('pelanggan')->result_array();
+        }
+        //ambil data pelanggan untuk pelanggan
+        public function get_plg2(){
+            return $this->db->get('pelanggan')->result();
         }
         public function input_plg($data){
             $this->db->insert('pelanggan', $data);

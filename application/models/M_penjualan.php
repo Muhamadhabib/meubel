@@ -18,6 +18,13 @@
             $this->db->join('pelanggan', 'pelanggan.id_plg = trans.id_plg');
             return $this->db->get()->result_array();
         }
+        //ambil data untuk laporan
+        public function get_trs2(){
+            $this->db->select('*');
+            $this->db->from('trans');
+            $this->db->join('pelanggan', 'pelanggan.id_plg = trans.id_plg');
+            return $this->db->get()->result();
+        }
         public function get_psn(){
             $this->db->select('*');
             $this->db->from('pesan');
