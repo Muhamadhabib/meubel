@@ -148,7 +148,7 @@
                                 <td>3</td>
                                 <td>Transaksi Kredit</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/transaksi_kredit" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
                     </button>
                                 </td>
@@ -166,7 +166,7 @@
                                 <td>5</td>
                                 <td>Pesanan Kredit</td>
                                 <td>
-                                <button type="button" class="btn btn-default waves-effect">
+                                <a href="<?= base_url(); ?>laporanpdf/pesan_kredit" target="_blank" type="button" class="btn btn-default waves-effect">
                         <i class="material-icons">print</i>
                     </button>
                                 </td>
