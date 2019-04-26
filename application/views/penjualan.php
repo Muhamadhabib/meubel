@@ -153,6 +153,7 @@
                             <form action="<?= site_url(); ?>penjualan/add" method="post">
                                 <input type="hidden" id="id" name="id" value="<?= $b['id_brg'];?>">
                                 <input type="hidden" id="nama" name="nama" value="<?= $b['nama_brg']; ?>">
+                                <input type="hidden" id="stok" name="stok" value="<?= $b['stok_brg']; ?>">
                                 <input type="hidden" id="harga" name="harga" value="<?= $b['harga_jual']; ?>">
                                 <input type="hidden" id="qty" name="qty" value="1">
                             <tr>
@@ -208,7 +209,7 @@
                             <td><?= $a['name'];?></td>
                             <td>
                                 <input type="hidden" value="<?= $a['rowid']; ?>" id="row" name="row">
-                                <input type="number" min="1" value="<?= $a['qty'];?>" id="qt" name="qt" style="width: 50px;">
+                                <input type="number" min="1" max="<?= $a['stock']; ?>" value="<?= $a['qty'];?>" id="qt" name="qt" style="width: 50px;">
                             </td>
                             <td>
                                 <?= 'Rp '.number_format($a['subtotal'],0,",",".");?>
@@ -245,7 +246,7 @@
                             <div class="form-line">
                                 <!-- <input type="text" id="email_address" class="form-control" placeholder="Enter your email address"> -->
                                 <select class="form-control " id="plg" name="plg" required>
-                                    <option value="">--pilih nama--</option>
+                                    <option value="">--Pilih Nama--</option>
                                     <?php foreach($plg as $c):?>
                                         <option value="<?= $c['id_plg']; ?>"><?= $c['nm_plg']; ?></option>
                                     <?php endforeach; ?>

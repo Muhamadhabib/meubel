@@ -21,6 +21,7 @@
             $data = array(
                 'id'    => $this->input->post('id'),
                 'name'  => $this->input->post('nama'),
+                'stock' => $this->input->post('stok'),
                 'price' => $this->input->post('harga'),
                 'qty'   => $this->input->post('qty'),
             );
