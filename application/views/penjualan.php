@@ -298,7 +298,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <select class="form-control " id="plg" name="plg" required>
-                                        <option value="">pilih nama </option>
+                                        <option value=""> --Pilih Nama-- </option>
                                         <?php foreach($plg as $c):?>
                                             <option value="<?= $c['id_plg']; ?>"><?= $c['nm_plg']; ?></option>
                                         <?php endforeach; ?>
@@ -322,14 +322,14 @@
                             <label for="dp">Uang Muka</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="number" class="form-control" id="dp" name="dp" required>
+                                    <input type="number" min="0" class="form-control" id="dp" name="dp" required>
                                 </div>
                             </div>
                             <label for="plg">Bulan Kredit</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <select class="form-control " id="bln" name="bln" required>
-                                        <option value="">pilih durasi bulan </option>
+                                        <option value=""> --Pilih Durasi Bulan-- </option>
                                             <option value="4">4</option>
                                             <option value="6">6</option>
                                             <option value="12">12</option>
