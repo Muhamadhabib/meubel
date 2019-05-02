@@ -175,7 +175,7 @@
                         </tbody>
                         <?php endif;?>
                         </table>
-                        
+
                     </div>
                 </div>
                 <div class="card m-b--10">
@@ -209,19 +209,21 @@
                             <td><?= $a['name'];?></td>
                             <td>
                                 <input type="hidden" value="<?= $a['rowid']; ?>" id="row" name="row">
-                                <input type="number" min="1" max="<?= $a['stock']; ?>" value="<?= $a['qty'];?>" id="qt" name="qt" style="width: 50px;">
+                                <input type="number" onchange="refresh()" min="1" max="<?= $a['stock']; ?>" value="<?= $a['qty'];?>" id="qt" name="qt" style="width: 50px;">
                             </td>
                             <td>
                                 <?= 'Rp '.number_format($a['subtotal'],0,",",".");?>
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-success btn-sm waves-effect" ><i class="material-icons">mode_edit</i></button>
+                                <button type="submit" class="btn btn-success btn-sm waves-effect" ><i class="material-icons">refresh</i></button>
                                 <a href="<?= base_url();?>penjualan/delete/<?= $a['rowid']; ?>" class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
                             </td>
+
                             </tr>
                         </form>
                         <?php endforeach; ?>
                         </tbody>
+                        
                         </table>
                         <div class="row clearfix">
                             <div class="col-sm-1 ">
@@ -272,7 +274,7 @@
                                 <label for="tunai">Tunai</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="tunai" name="tunai" >
+                                            <input type="number" min="0" step="10000" class="form-control" id="tunai" name="tunai" onchange="total()">
                                         </div>
                                     </div>
                                 </div>
@@ -280,13 +282,28 @@
                                 <label for="kem">Kembali</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="kem" name="kem" >
+                                            <input type="text" class="form-control" id="kem" name="kem" readonly >
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     
                                 </div>
+
+                                <script type="text/javascript">
+                                function total() {
+                                    var uang = document.getElementById('tunai').value;
+                                    var harga = document.getElementById('hrg').value;
+                                    var kembali = uang - harga;
+                                    
+                                    if(document.getElementById('tunai').value != 0){
+                                        document.getElementById('kem').value = kembali;
+                                    }else{
+                                        document.getElementById('kem').value = null;
+                                    }
+                                }
+                                </script>
+
                             </div>
                         <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Simpan</button>
                     </form>  
@@ -345,6 +362,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
