@@ -165,7 +165,7 @@ Class Laporanpdf extends CI_Controller{
     //data transaksi kredit
     function transaksi_kredit(){
         $this->load->model('M_kredit');
-        $pdf = new FPDF('l','mm','A4');
+        $pdf = new FPDF('l','mm','A3');
         // membuat halaman baru
         $pdf->AddPage();
         // setting jenis font yang akan digunakan
@@ -184,8 +184,13 @@ Class Laporanpdf extends CI_Controller{
         $pdf->Cell(30,6,'TOTAL HARGA',1,0,'C');
         $pdf->Cell(25,6,'UANG MUKA',1,0,'C');
         $pdf->Cell(15,6,'BULAN',1,0,'C');
-        $pdf->Cell(22,6,'ANGSURAN',1,0,'C');
-        $pdf->Cell(25,6,'BAYAR',1,0,'C');
+        $pdf->Cell(25,6,'ANGSURAN 1',1,0,'C');
+        $pdf->Cell(25,6,'ANGSURAN 2',1,0,'C');
+        $pdf->Cell(25,6,'ANGSURAN 3',1,0,'C');
+        $pdf->Cell(25,6,'ANGSURAN 4',1,0,'C');
+        $pdf->Cell(25,6,'ANGSURAN 5',1,0,'C');
+        $pdf->Cell(25,6,'ANGSURAN 6',1,0,'C');
+        // $pdf->Cell(25,6,'BAYAR',1,0,'C');
         $pdf->Cell(20,6,'SISA',1,0,'C');
         $pdf->Cell(35,6,'TANGGAL',1,0,'C');
         $pdf->Cell(25,6,'STATUS',1,1,'C');
@@ -193,7 +198,7 @@ Class Laporanpdf extends CI_Controller{
 
         $pdf->SetFont('Arial','',10);
         
-        $kredit = $this->M_kredit->get_kre2();
+        $kredit = $this->M_kredit->get_kre3();
         foreach ($kredit as $row){
             $pdf->Cell(20,6,$row->id_kre,1,0,'C');
             $pdf->Cell(30,6,$row->nm_plg,1,0,'C'); 
@@ -201,8 +206,13 @@ Class Laporanpdf extends CI_Controller{
             $pdf->Cell(30,6,$row->tot_hrg,1,0,'C');
             $pdf->Cell(25,6,$row->dp_hrg,1,0,'C');
             $pdf->Cell(15,6,$row->bln_kre,1,0,'C');
-            $pdf->Cell(22,6,$row->ang_kre,1,0,'C');
-            $pdf->Cell(25,6,$row->byr_kre,1,0,'C');
+            $pdf->Cell(25,6,$row->ang_kre1,1,0,'C');
+            $pdf->Cell(25,6,$row->ang_kre2,1,0,'C');
+            $pdf->Cell(25,6,$row->ang_kre3,1,0,'C');
+            $pdf->Cell(25,6,$row->ang_kre4,1,0,'C');
+            $pdf->Cell(25,6,$row->ang_kre5,1,0,'C');
+            $pdf->Cell(25,6,$row->ang_kre6,1,0,'C');
+            // $pdf->Cell(25,6,$row->byr_kre,1,0,'C');
             $pdf->Cell(20,6,$row->sisa_kre,1,0,'C');
             $pdf->Cell(35,6,$row->tgl_kre,1,0,'C');
             $pdf->Cell(25,6,$row->status,1,1,'C');
