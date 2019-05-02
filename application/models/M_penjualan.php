@@ -25,6 +25,13 @@
             $this->db->join('pelanggan', 'pelanggan.id_plg = trans.id_plg');
             return $this->db->get()->result();
         }
+        //untuk grafik
+        public function get_trs3(){
+            $this->db->select('tgl_trans, COUNT(tgl_trans) as jumlah');
+            $this->db->group_by('Month(tgl_trans)'); 
+            $this->db->order_by('tgl_trans', 'asc'); 
+            return $this->db->get('trans')->result_array();
+        }
         public function get_psn(){
             $this->db->select('*');
             $this->db->from('pesan');

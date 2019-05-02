@@ -18,14 +18,21 @@
             $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
             return $this->db->get()->result_array();
         }
-        //untuk laporan
-        public function get_kre2(){
-            $this->db->select('*');
-            $this->db->from('kredit');
-            $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
-            return $this->db->get()->result();
-        }
 
+        //untuk grafik
+        public function get_kre2(){
+            $this->db->select('tgl_kre, COUNT(tgl_kre) as jumlah');
+            $this->db->group_by('Month(tgl_kre)'); 
+            $this->db->order_by('tgl_kre', 'asc'); 
+            return $this->db->get('kredit')->result_array();
+        }
+        //untuk laporan
+//         public function get_kre2(){
+//             $this->db->select('*');
+//             $this->db->from('kredit');
+//             $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
+//             return $this->db->get()->result();
+//         }
         public function get_psn(){
             $this->db->select('*');
             $this->db->from('pesan2');
