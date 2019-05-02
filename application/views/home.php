@@ -103,7 +103,7 @@
                                 <i class="material-icons md-48">receipt</i>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <p class="announcement-heading">21</p>
+                                <p class="announcement-heading"></p>
                                 <p class="announcement-text">Transaksi<br>Kredit</p>
                             </div>
                         </div>
@@ -124,14 +124,14 @@
             </div>
 
             <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="panel panel-alert">
+                <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
                                 <i class="material-icons md-48">store</i>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <p class="announcement-heading">21</p>
+                                <p class="announcement-heading"></p>
                                 <p class="announcement-text">Transaksi <br>Tunai</p>
                             </div>
                         </div>
@@ -152,14 +152,14 @@
             </div>
             
             <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="panel panel-success">
+                <div class="panel panel-warning">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
                                 <i class="material-icons md-48">description</i>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <p class="announcement-heading">21</p>
+                                <p class="announcement-heading"></p>
                                 <p class="announcement-text">Data <br> Laporan</p>
                             </div>
                         </div>
@@ -188,18 +188,40 @@
                     </div>
                     <div class="content">
                         <div class="text">KREDIT</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="<?= $kredit;?>" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-cyan hover-expand-effect">
+                <div class="info-box bg-teal hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons md-48">store</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Tunai</div>
+                        <div class="number count-to" data-from="0" data-to="<?= $tunai;?>" data-speed="1000" data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="info-box bg-brown hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">list</i>
                     </div>
                     <div class="content">
                         <div class="text">BARANG</div>
-                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">
+                        <div class="number count-to" data-from="0" data-to="<?= $brg;?>" data-speed="1000" data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+                <div class="info-box bg-light-blue hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Pelanggan</div>
+                        <div class="number count-to" data-from="0" data-to="<?= $plg;?>" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
