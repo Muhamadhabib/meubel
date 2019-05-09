@@ -41,8 +41,8 @@
 <!-- Demo Js -->
 <script src="<?= base_url();?>asset/js/demo.js"></script>
 <script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
-<script src="<?= base_url();?>asset/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="<?= base_url();?>asset/js/pages/forms/form-validation.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Bootstrap Colorpicker Js -->
 <script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
