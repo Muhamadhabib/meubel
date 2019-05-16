@@ -101,6 +101,12 @@
             Data <strong>berhasil</strong> <?= $this->session->flashdata('input'); ?>
             </div>
         <?php endif; ?>
+        <?php if ($this->session->flashdata('ada')) : ?>
+            <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong> <?= $this->session->flashdata('ada');?></strong>
+            </div>
+        <?php endif; ?>
         <?php if ($this->session->flashdata('hapus')) : ?>
             <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
