@@ -89,5 +89,9 @@
             $this->db->where('nm_plg',$nama);
             return $this->db->get('pelanggan')->num_rows();
         }
+        public function cek_jenis($nama){
+            $this->db->where('nama_jenis',$nama);
+            return $this->db->get('jenis')->num_rows();
+        }
     }
 ?>

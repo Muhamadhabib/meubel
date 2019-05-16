@@ -107,6 +107,12 @@
             Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
             </div>
         <?php endif; ?>
+        <?php if ($this->session->flashdata('cek')) : ?>
+            <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>Jenis</strong> <?= $this->session->flashdata('cek'); ?>
+            </div>
+        <?php endif; ?>
 
         <a href="<?= base_url();?>jenis/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a>
         <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->

@@ -24,8 +24,12 @@
             $data = [
                 'nama_jenis'  => $this->input->post('nama_jenis'),
             ];
-            $this->M_admin->input_jenis($data);
-            $this->session->set_flashdata('input','Ditambahkan');
+            if($this->M_admin->cek_jenis($this->input->post('nama_jenis'))){
+                $this->session->set_flashdata('cek','Sudah Ada');
+            }else{
+                $this->M_admin->input_jenis($data);
+                $this->session->set_flashdata('input','Ditambahkan');
+            }
             redirect('jenis');
         }
         public function ubah($id){
