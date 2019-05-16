@@ -85,6 +85,9 @@
             $this->db->join('transaksi', 'transaksi.id_plg = pelanggan.id_plg');
             return $this->db->get()->result_array();
         }
-
+        public function cek_plg($nama){
+            $this->db->where('nm_plg',$nama);
+            return $this->db->get('pelanggan')->num_rows();
+        }
     }
 ?>
