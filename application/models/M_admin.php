@@ -53,11 +53,6 @@
             $this->db->delete('jenis');
         }
 
-        public function cek_jenis(){
-            $this->db->where('nama_jenis',$this->input->post('nama_jenis'));
-            return $this->db->get('jenis')->num_rows();
-        }
-
         public function get_IdBarang($id){
             $this->db->where('id_brg', $id);
             return $this->db->get('barang')->result_array();
@@ -99,5 +94,14 @@
             return $this->db->get()->result_array();
         }
 
+        public function cek_plg($nama){
+            $this->db->where('nm_plg',$nama);
+            return $this->db->get('pelanggan')->num_rows();
+        }
+        
+        public function cek_jenis($nama){
+            $this->db->where('nama_jenis',$nama);
+            return $this->db->get('jenis')->num_rows();
+        }
     }
 ?>

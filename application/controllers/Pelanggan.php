@@ -31,8 +31,12 @@ class Pelanggan extends CI_Controller{
             'no_hp' => $this->input->post('no_hp'),
             'alamat' => $this->input->post('almt')
         ];
-        $this->M_admin->input_plg($data);
-        $this->session->set_flashdata('input','Ditambahkan');
+        if($this->M_admin->cek_plg($this->input->post('nama'))){
+            $this->session->set_flashdata('cek','Sudah Ada');
+        }else{
+            $this->M_admin->input_plg($data);
+            $this->session->set_flashdata('input','Ditambahkan');
+        }
         redirect('pelanggan');
     }
 

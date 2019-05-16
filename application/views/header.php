@@ -34,23 +34,19 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?= base_url();?>asset/css/themes/all-themes.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="text/javascript">
         function notif(){
-            //Swal.fire('Any fool can use a computer');
-            Swal.fire({
-                title: 'Apakah ingin Keluar?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya',
-                cancelButtonText:  'Tidak'
-                }).then((result) => {
-                    if (result.value) {
-                    location.href = "<?= base_url();?>login/logout"; 
-                }
+            swal({
+            title: "Apakah Anda Ingin Keluar?",
+            icon: "warning",
+            buttons: ["Tidak", "Ya"],
+            dangerMode: true,
             })
+            .then((result) => {
+                if (result) {
+                    location.href = "<?= base_url();?>login/logout";
+                }
+            });
         }
     </script>
 </head>
