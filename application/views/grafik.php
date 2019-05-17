@@ -130,45 +130,28 @@
                         
                             <?php 
                                 foreach($brg as $c):
-                                    $nama[] = $c['nama_brg'];
-                                    $stok[] = $c['stok_brg'];
+                                    $nama[] = $c['nama_jenis'];
+                                    $stok[] = $c['SUM(stok_brg)'];
                             ?>
                                 <script>
                                 var ctx = document.getElementById('myChart').getContext('2d');
                                 var myChart = new Chart(ctx, {
-                                    type: 'bar',
+                                    type: 'pie',
                                     data: {
-                                        labels: <?php echo json_encode($nama);?>,
                                         datasets: [{
-                                            label: '# of Votes',
                                             data: <?php echo json_encode($stok);?>,
                                             backgroundColor: [
-                                                'rgba(255, 99, 132, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(255, 206, 86, 0.2)',
-                                                'rgba(75, 192, 192, 0.2)',
-                                                'rgba(153, 102, 255, 0.2)',
-                                                'rgba(255, 159, 64, 0.2)'
+                                                "rgb(233, 30, 99)",
+                                                "rgb(255, 193, 7)",
+                                                "rgb(0, 188, 212)",
+                                                "rgb(139, 195, 74)"
                                             ],
-                                            borderColor: [
-                                                'rgba(255, 99, 132, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(255, 206, 86, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(153, 102, 255, 1)',
-                                                'rgba(255, 159, 64, 1)'
-                                            ],
-                                            borderWidth: 1
-                                        }]
+                                        }],
+                                        labels: <?php echo json_encode($nama);?>
                                     },
                                     options: {
-                                        scales: {
-                                            yAxes: [{
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }]
-                                        }
+                                        responsive: true,
+                                        legend: false
                                     }
                                 });
                                 </script>
@@ -201,46 +184,46 @@
                         <canvas id="myChart2" width="400" height="400"></canvas>
                         <?php 
                             foreach($trs as $t):
-                                $tgl[] = $t['tgl_trans'];
+                                $tgl[] = $t['MONTHNAME(tgl_trans)'];
                                 $tot_brg[] = $t['jumlah'];
                         ?>
                             <script>
                             var ctx = document.getElementById('myChart2').getContext('2d');
                             var myChart = new Chart(ctx, {
-                                type: 'bar',
-                                data: {
-                                    labels: <?php echo json_encode($tgl);?>,
-                                    datasets: [{
-                                        label: '# of Votes',
-                                        data: <?php echo json_encode($tot_brg);?>,
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0.2)',
-                                            'rgba(54, 162, 235, 0.2)',
-                                            'rgba(255, 206, 86, 0.2)',
-                                            'rgba(75, 192, 192, 0.2)',
-                                            'rgba(153, 102, 255, 0.2)',
-                                            'rgba(255, 159, 64, 0.2)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 99, 132, 1)',
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(255, 206, 86, 1)',
-                                            'rgba(75, 192, 192, 1)',
-                                            'rgba(153, 102, 255, 1)',
-                                            'rgba(255, 159, 64, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }]
-                                    }
-                                }
+                                // type: 'bar',
+                                // data: {
+                                //     labels: <?php echo json_encode($tgl);?>,
+                                //     datasets: [{
+                                //         label: '# of Votes',
+                                //         data: <?php echo json_encode($tot_brg);?>,
+                                //         backgroundColor: [
+                                //             'rgba(255, 99, 132, 0.2)',
+                                //             'rgba(54, 162, 235, 0.2)',
+                                //             'rgba(255, 206, 86, 0.2)',
+                                //             'rgba(75, 192, 192, 0.2)',
+                                //             'rgba(153, 102, 255, 0.2)',
+                                //             'rgba(255, 159, 64, 0.2)'
+                                //         ],
+                                //         borderColor: [
+                                //             'rgba(255, 99, 132, 1)',
+                                //             'rgba(54, 162, 235, 1)',
+                                //             'rgba(255, 206, 86, 1)',
+                                //             'rgba(75, 192, 192, 1)',
+                                //             'rgba(153, 102, 255, 1)',
+                                //             'rgba(255, 159, 64, 1)'
+                                //         ],
+                                //         borderWidth: 1
+                                //     }]
+                                // },
+                                // options: {
+                                //     scales: {
+                                //         yAxes: [{
+                                //             ticks: {
+                                //                 beginAtZero: true
+                                //             }
+                                //         }]
+                                //     }
+                                // }
                             });
                             </script>
                             <?php 
@@ -251,13 +234,12 @@
                     </div>
                 </div>
 
-        </div>
+                <!-- real shit -->
 
-        <div class="row clearfix p-t-10">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>CHART Transaksi Kredit</h2>
+                            <h2>CHART Transaksi</h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -274,46 +256,39 @@
                         <div class="body">
                         <canvas id="myChart3" width="400" height="400"></canvas>
                         <?php 
-                            foreach($kre as $k):
-                                $tgl[] = $k['tgl_kre'];
-                                $jumlah[] = $k['jumlah'];
+                            foreach($trs as $t):
+                                $tgl[] = $t['MONTHNAME(tgl_trans)'];
+                                $tot_brg[] = $t['jumlah'];
                         ?>
+                        
                             <script>
                             var ctx = document.getElementById('myChart3').getContext('2d');
                             var myChart = new Chart(ctx, {
-                                type: 'bar',
+                                type: 'line',
                                 data: {
-                                    labels: <?php echo json_encode($tgl);?>,
+                                    labels:<?php echo json_encode($tgl);?>,
                                     datasets: [{
-                                        label: '# of Votes',
-                                        data: <?php echo json_encode($jumlah);?>,
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0.2)',
-                                            'rgba(54, 162, 235, 0.2)',
-                                            'rgba(255, 206, 86, 0.2)',
-                                            'rgba(75, 192, 192, 0.2)',
-                                            'rgba(153, 102, 255, 0.2)',
-                                            'rgba(255, 159, 64, 0.2)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 99, 132, 1)',
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(255, 206, 86, 1)',
-                                            'rgba(75, 192, 192, 1)',
-                                            'rgba(153, 102, 255, 1)',
-                                            'rgba(255, 159, 64, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
+                                        label: "Transaksi Tunai",
+                                        data: <?php echo json_encode($tot_brg);?>,
+                                        borderColor: 'rgba(0, 188, 212, 0.75)',
+                                        backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                                        pointBorderColor: 'rgba(0, 188, 212, 0)',
+                                        pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                                        pointBorderWidth: 1
+                                    }, {
+                                            label: "Transaksi Kredit",
+                                            data: [6, 3, 4],
+                                            borderColor: 'rgba(233, 30, 99, 0.75)',
+                                            backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                                            pointBorderColor: 'rgba(233, 30, 99, 0)',
+                                            pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                                            pointBorderWidth: 1
                                         }]
-                                    }
+                                },
+                            
+                                options: {
+                                    responsive: true,
+                                    legend: false
                                 }
                             });
                             </script>
@@ -324,7 +299,10 @@
                         </div>
                     </div>
                 </div>
-                
+
+
+
         </div>
+
     </div>
 </section>

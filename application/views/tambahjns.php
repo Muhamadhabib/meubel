@@ -120,7 +120,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="nama_jenis" name="nama_jenis" />
+                                            <input type="text" class="form-control" id="nama_jenis" name="nama_jenis" required/>
                                             <label class="form-label">Jenis Barang</label>
                                         </div>
                                     </div>

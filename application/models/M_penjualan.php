@@ -27,9 +27,8 @@
         }
         //untuk grafik
         public function get_trs3(){
-            $this->db->select('tgl_trans, COUNT(tgl_trans) as jumlah');
+            $this->db->select('tgl_trans, COUNT(tgl_trans) as jumlah, MONTHNAME(tgl_trans)');
             $this->db->group_by('Month(tgl_trans)'); 
-            $this->db->order_by('tgl_trans', 'asc'); 
             return $this->db->get('trans')->result_array();
         }
         public function get_psn(){

@@ -39,11 +39,13 @@
             $this->load->view("footer");
         }
         public function edit($id){
+            $nama = $this->input->post('nama_jenis');
             $data = [
-                'nama_jenis'  => $this->input->post('nama_jenis'),
+                'nama_jenis'  => $nama,
             ];
-
-            $this->M_admin->ubah_jenis($id, $data);
+            if($this->M_admin->cek_jenis('$nama')>0){
+                $this->M_admin->ubah_jenis($id, $data);
+            }
             redirect('jenis');
         }
 
