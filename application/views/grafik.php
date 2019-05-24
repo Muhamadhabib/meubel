@@ -163,76 +163,7 @@
                     
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>CHART Transaksi Tunai</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                        <canvas id="myChart2" width="400" height="400"></canvas>
-                        <?php 
-                            foreach($trs as $t):
-                                $tgl[] = $t['MONTHNAME(tgl_trans)'];
-                                $tot_brg[] = $t['jumlah'];
-                        ?>
-                            <script>
-                            var ctx = document.getElementById('myChart2').getContext('2d');
-                            var myChart = new Chart(ctx, {
-                                // type: 'bar',
-                                // data: {
-                                //     labels: <?php echo json_encode($tgl);?>,
-                                //     datasets: [{
-                                //         label: '# of Votes',
-                                //         data: <?php echo json_encode($tot_brg);?>,
-                                //         backgroundColor: [
-                                //             'rgba(255, 99, 132, 0.2)',
-                                //             'rgba(54, 162, 235, 0.2)',
-                                //             'rgba(255, 206, 86, 0.2)',
-                                //             'rgba(75, 192, 192, 0.2)',
-                                //             'rgba(153, 102, 255, 0.2)',
-                                //             'rgba(255, 159, 64, 0.2)'
-                                //         ],
-                                //         borderColor: [
-                                //             'rgba(255, 99, 132, 1)',
-                                //             'rgba(54, 162, 235, 1)',
-                                //             'rgba(255, 206, 86, 1)',
-                                //             'rgba(75, 192, 192, 1)',
-                                //             'rgba(153, 102, 255, 1)',
-                                //             'rgba(255, 159, 64, 1)'
-                                //         ],
-                                //         borderWidth: 1
-                                //     }]
-                                // },
-                                // options: {
-                                //     scales: {
-                                //         yAxes: [{
-                                //             ticks: {
-                                //                 beginAtZero: true
-                                //             }
-                                //         }]
-                                //     }
-                                // }
-                            });
-                            </script>
-                            <?php 
-                                endforeach;
-                            ?>
-                            
-                        </div>
-                    </div>
-                </div>
+                
 
                 <!-- real shit -->
 
@@ -256,11 +187,12 @@
                         <div class="body">
                         <canvas id="myChart3" width="400" height="400"></canvas>
                         <?php 
-                            foreach($trs as $t):
-                                $tgl[] = $t['MONTHNAME(tgl_trans)'];
-                                $tot_brg[] = $t['jumlah'];
+                            foreach($kre as $k):
+                                $tgl[] = $k['MONTHNAME(tgl_kre)'];
+                                $tot_brgKre[] = $k['jumlahKre'];
+                                foreach($trs as $t):
+                                    $tot_brg[] = $t['jumlahTunai'];
                         ?>
-                        
                             <script>
                             var ctx = document.getElementById('myChart3').getContext('2d');
                             var myChart = new Chart(ctx, {
@@ -268,16 +200,17 @@
                                 data: {
                                     labels:<?php echo json_encode($tgl);?>,
                                     datasets: [{
-                                        label: "Transaksi Tunai",
-                                        data: <?php echo json_encode($tot_brg);?>,
+                                        label: "Transaksi Kredit",
+                                        data: <?php echo json_encode($tot_brgKre);?>,
                                         borderColor: 'rgba(0, 188, 212, 0.75)',
                                         backgroundColor: 'rgba(0, 188, 212, 0.3)',
                                         pointBorderColor: 'rgba(0, 188, 212, 0)',
                                         pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
                                         pointBorderWidth: 1
                                     }, {
-                                            label: "Transaksi Kredit",
-                                            data: [6, 3, 4],
+                                    
+                                            label: "Transaksi Tunai",
+                                            data: <?php echo json_encode($tot_brg);?>,
                                             borderColor: 'rgba(233, 30, 99, 0.75)',
                                             backgroundColor: 'rgba(233, 30, 99, 0.3)',
                                             pointBorderColor: 'rgba(233, 30, 99, 0)',
@@ -294,13 +227,11 @@
                             </script>
                             <?php 
                                 endforeach;
+                                endforeach; 
                             ?>
-                            
                         </div>
                     </div>
                 </div>
-
-
 
         </div>
 
