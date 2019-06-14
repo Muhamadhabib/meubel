@@ -11,7 +11,7 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="<?=base_url();?>pelanggan">
                         <i class="material-icons">person</i>
                         <span>Pelanggan</span>
@@ -21,6 +21,12 @@
                     <a href="<?=base_url(); ?>penjualan">
                         <i class="material-icons">local_mall</i>
                         <span>Transaksi</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
                     </a>
                 </li>
                 <li >
@@ -97,6 +103,12 @@
             <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             Data <strong>berhasil</strong> <?= $this->session->flashdata('input'); ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('gagal')) : ?>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong> <?= $this->session->flashdata('gagal'); ?> </strong>
             </div>
         <?php endif; ?>
         <div class="row clearfix">
