@@ -12,6 +12,7 @@
         public function get_plg2(){
             $this->db->select('*');
             $this->db->from('angsuran');
+            $this->db->order_by('ang_tgl', 'ASC');
             $this->db->join('pelanggan', 'pelanggan.id_plg = angsuran.plg');
             return $this->db->get()->result_array();
         }
