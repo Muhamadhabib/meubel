@@ -52,11 +52,18 @@
         public function input_kre($data){
             $this->db->insert('kredit', $data);
         }
+        public function input_ang($data){
+            $this->db->insert('angsuran', $data);
+        }
         public function input_pesan($data){
             $this->db->insert('pesan', $data);
         }
         public function input_pesan2($data){
             $this->db->insert('pesan2', $data);
+        }
+        public function cek_kre($nama){
+            $this->db->where('id_plg',$nama);
+            return $this->db->get('kredit')->num_rows();
         }
     }
 ?>

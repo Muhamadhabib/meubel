@@ -24,6 +24,12 @@
                     </a>
                 </li>
                 <li >
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
+                    </a>
+                </li>
+                <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>

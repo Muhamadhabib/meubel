@@ -66,8 +66,8 @@
             );
             $this->M_penjualan->input_trans($data);
             $this->session->set_flashdata('input','Disimpan');
-            redirect('penjualan');
             $this->cart->destroy();
+            redirect('penjualan');
         }
         public function simpan2(){
             date_default_timezone_set('Asia/Jakarta');
@@ -81,21 +81,34 @@
                 );
                 $this->M_penjualan->input_pesan2($dat);
             }
+            $bln = $this->input->post('bln');
+            $kre = $this->input->post('hrg')-$this->input->post('dp');
             $data = array(
                 'id_plg'   => $this->input->post('plg'),
                 'tot_brg'  => $this->input->post('brg'),
                 'tot_hrg'  => $this->input->post('hrg'),
                 'dp_hrg'   => $this->input->post('dp'),
                 'bln_kre'  => $this->input->post('bln'),
-                'ang_kre'  => 1,
                 'sisa_kre' => ($this->input->post('hrg')-$this->input->post('dp')),
                 'tgl_kre'  => date('y/m/d h:i:s'),
                 'status'   => "belum lunas",
             );
-            $this->M_penjualan->input_kre($data);
-            $this->session->set_flashdata('input','Disimpan');
-            redirect('penjualan');
+            $ang = array(
+                'plg'   => $this->input->post('plg'),
+                'ang_bln'  => $bln,
+                'tagihan'  => ($this->input->post('hrg')-$this->input->post('dp')),
+                'ang_tgl'  => date('y/m/d h:i:s'),
+                'status'   => "belum lunas",
+            );
+            if(!$this->M_penjualan->cek_kre($this->input->post('plg'))){
+                $this->M_penjualan->input_kre($data);
+                $this->M_penjualan->input_ang($ang);
+                $this->session->set_flashdata('input','Disimpan'); 
+            }else{
+                $this->session->set_flashdata('hapus','Sudah ada');
+            }
             $this->cart->destroy();
+            redirect('penjualan');
         }
         public function transaksi(){
             $data['judul'] = 'Data Transaksi';

@@ -24,6 +24,12 @@
                     </a>
                 </li>
                 <li >
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
+                    </a>
+                </li>
+                <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>
@@ -126,14 +132,12 @@
                         <thead>
                             <tr>
                             <th scope="col">No.</th>
-                            <th scope="col">Kode Transaksi</th>
+                            <th scope="col">Kode Kredit</th>
                             <th scope="col">Nama Pelanggan</th>
                             <th scope="col">Total Barang</th>
                             <th scope="col">Total Harga</th>
                             <th scope="col">Uang Muka</th>
                             <th scope="col">Bulan</th>
-                            <th scope="col">Angsuran</th>
-                            <th scope="col">Bayar</th>
                             <th scope="col">Sisa</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Status</th>
@@ -151,8 +155,6 @@
                             <td><?= $b['tot_hrg'];?></td>
                             <td><?= $b['dp_hrg'];?></td>
                             <td><?= $b['bln_kre'];?></td>
-                            <td><?= $b['ang_kre'];?></td>
-                            <td><?= $b['byr_kre'];?></td>
                             <td><?= $b['sisa_kre'];?></td>
                             <td><?= $b['tgl_kre'];?></td>
                             <td><?= $b['status'];?></td>
