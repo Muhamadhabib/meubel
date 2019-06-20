@@ -21,6 +21,14 @@
         public function get_barang(){
             return $this->db->get('barang')->result_array();
         }
+        public function get_barang3(){
+            $this->db->select('nama_brg,stok_brg,SUM(stok_brg),jenis.nama_jenis');
+            $this->db->from('barang');
+            $this->db->join('jenis', 'barang.id_jenis = jenis.id_jenis');
+            $this->db->group_by('barang.id_jenis');
+            // $query = $this->db->query('SELECT barang.nama_brg, barang.stok_brg, SUM(barang.stok_brg) FROM barang INNER JOIN jenis ON barang.id_jenis=jenis.id_jenis GROUP BY barang.id_jenis');
+            return $this->db->get()->result_array();
+        }
         //untuk laporan
         public function get_barang2(){
             return $this->db->get('barang')->result();
@@ -86,5 +94,14 @@
             return $this->db->get()->result_array();
         }
 
+        public function cek_plg($nama){
+            $this->db->where('nm_plg',$nama);
+            return $this->db->get('pelanggan')->num_rows();
+        }
+        
+        public function cek_jenis($nama){
+            $this->db->where('nama_jenis',$nama);
+            return $this->db->get('jenis')->num_rows();
+        }
     }
 ?>

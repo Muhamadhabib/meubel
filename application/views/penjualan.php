@@ -24,6 +24,12 @@
                     </a>
                 </li>
                 <li >
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
+                    </a>
+                </li>
+                <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>
@@ -103,7 +109,7 @@
         <?php if ($this->session->flashdata('hapus')) : ?>
             <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
+            Data <?= $this->session->flashdata('hapus'); ?>
             </div>
         <?php endif; ?>
 
@@ -259,14 +265,14 @@
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="hidden" class="form-control" id="hrg" name="hrg" value="<?= $this->cart->total();?>">
-                                <input type="text" class="form-control" value="<?= 'Rp '.number_format($this->cart->total(),0,",",".");?>" disabled>
+                                <input type="text" class="form-control" value="<?= 'Rp '.number_format($this->cart->total(),0,",",".");?>" readonly>
                             </div>
                         </div>
                         <label for="brg">Total Barang</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="hidden" class="form-control" id="brg" name="brg" value="<?= $this->cart->total_items();?>">
-                                <input type="text" class="form-control" value="<?= $this->cart->total_items();?>" disabled >
+                                <input type="text" class="form-control" value="<?= $this->cart->total_items();?>" readonly >
                             </div>
                         </div>
                         <div class="row clearfix">
@@ -349,7 +355,6 @@
                                         <option value=""> --Pilih Durasi Bulan-- </option>
                                             <option value="4">4</option>
                                             <option value="6">6</option>
-                                            <option value="12">12</option>
                                     </select>
                                 </div>
                             </div>

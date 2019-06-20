@@ -19,5 +19,10 @@
             $this->load->view("data_kre",$data);
             $this->load->view("footer");
         }
+        public function angsuran(){
+            $this->load->view("header");
+            $this->load->view("angsur_v");
+            $this->load->view("footer");
+        }
     }
 ?>

@@ -8,7 +8,7 @@
             $this->load->model('M_kredit');
         }
         public function index(){
-            $data['brg'] = $this->M_admin->get_barang();
+            $data['brg'] = $this->M_admin->get_barang3();
             $data['trs'] = $this->M_penjualan->get_trs3();
             $data['kre'] = $this->M_kredit->get_kre2();
             $this->load->view('header');

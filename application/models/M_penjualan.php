@@ -27,9 +27,8 @@
         }
         //untuk grafik
         public function get_trs3(){
-            $this->db->select('tgl_trans, COUNT(tgl_trans) as jumlah');
+            $this->db->select('tgl_trans, COUNT(tgl_trans) as jumlahTunai, MONTHNAME(tgl_trans)');
             $this->db->group_by('Month(tgl_trans)'); 
-            $this->db->order_by('tgl_trans', 'asc'); 
             return $this->db->get('trans')->result_array();
         }
         public function get_psn(){
@@ -53,11 +52,18 @@
         public function input_kre($data){
             $this->db->insert('kredit', $data);
         }
+        public function input_ang($data){
+            $this->db->insert('angsuran', $data);
+        }
         public function input_pesan($data){
             $this->db->insert('pesan', $data);
         }
         public function input_pesan2($data){
             $this->db->insert('pesan2', $data);
+        }
+        public function cek_kre($nama){
+            $this->db->where('id_plg',$nama);
+            return $this->db->get('kredit')->num_rows();
         }
     }
 ?>

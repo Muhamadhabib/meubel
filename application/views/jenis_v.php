@@ -24,6 +24,12 @@
                     </a>
                 </li>
                 <li >
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
+                    </a>
+                </li>
+                <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>
@@ -101,10 +107,22 @@
             Data <strong>berhasil</strong> <?= $this->session->flashdata('input'); ?>
             </div>
         <?php endif; ?>
+        <?php if ($this->session->flashdata('ada')) : ?>
+            <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong> <?= $this->session->flashdata('ada');?></strong>
+            </div>
+        <?php endif; ?>
         <?php if ($this->session->flashdata('hapus')) : ?>
             <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('cek')) : ?>
+            <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>Jenis</strong> <?= $this->session->flashdata('cek'); ?>
             </div>
         <?php endif; ?>
 

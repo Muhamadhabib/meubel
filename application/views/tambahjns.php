@@ -24,6 +24,12 @@
                     </a>
                 </li>
                 <li >
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
+                    </a>
+                </li>
+                <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>
@@ -120,7 +126,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="nama_jenis" name="nama_jenis" />
+                                            <input type="text" class="form-control" id="nama_jenis" name="nama_jenis" required/>
                                             <label class="form-label">Jenis Barang</label>
                                         </div>
                                     </div>

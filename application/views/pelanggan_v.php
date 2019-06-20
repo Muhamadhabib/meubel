@@ -24,6 +24,12 @@
                     </a>
                 </li>
                 <li >
+                    <a href="<?=base_url(); ?>angsuran">
+                        <i class="material-icons">credit_card</i>
+                        <span>Angsuran</span>
+                    </a>
+                </li>
+                <li >
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">store</i>
                         <span>Tunai</span>
@@ -105,7 +111,12 @@
             Data <strong>berhasil</strong> <?= $this->session->flashdata('hapus'); ?>
             </div>
         <?php endif; ?>
-
+        <?php if ($this->session->flashdata('cek')) : ?>
+            <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Data <strong>Pelanggan</strong> <?= $this->session->flashdata('cek'); ?>
+            </div>
+        <?php endif; ?>
         <a href="<?= base_url();?>pelanggan/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a>
         <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->
 

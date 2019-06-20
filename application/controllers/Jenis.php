@@ -24,8 +24,12 @@
             $data = [
                 'nama_jenis'  => $this->input->post('nama_jenis'),
             ];
-            $this->M_admin->input_jenis($data);
-            $this->session->set_flashdata('input','Ditambahkan');
+            if($this->M_admin->cek_jenis($this->input->post('nama_jenis'))){
+                $this->session->set_flashdata('cek','Sudah Ada');
+            }else{
+                $this->M_admin->input_jenis($data);
+                $this->session->set_flashdata('input','Ditambahkan');
+            }
             redirect('jenis');
         }
         public function ubah($id){
@@ -35,11 +39,13 @@
             $this->load->view("footer");
         }
         public function edit($id){
+            $nama = $this->input->post('nama_jenis');
             $data = [
-                'nama_jenis'  => $this->input->post('nama_jenis'),
+                'nama_jenis'  => $nama,
             ];
-
-            $this->M_admin->ubah_jenis($id, $data);
+            if($this->M_admin->cek_jenis('$nama')>0){
+                $this->M_admin->ubah_jenis($id, $data);
+            }
             redirect('jenis');
         }
 
