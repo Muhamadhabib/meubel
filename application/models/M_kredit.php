@@ -29,11 +29,13 @@
             $this->db->group_by('Month(tgl_kre)'); 
             return $this->db->get('kredit')->result_array();
         }
+
         //untuk laporan
         public function get_kre3(){
             $this->db->select('*');
             $this->db->from('kredit');
-            $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
+            //$this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
+
             $this->db->join('angsuran', 'angsuran.plg = kredit.id_plg');
             return $this->db->get()->result();
         }

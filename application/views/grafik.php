@@ -114,11 +114,11 @@
         <?php endif; ?>
 
         <div class="row clearfix p-t-10">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>CHART Barang</h2>
-                            <ul class="header-dropdown m-r--5">
+                            <!-- <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
@@ -129,10 +129,11 @@
                                         <li><a href="javascript:void(0);">Something else here</a></li>
                                     </ul>
                                 </li>
-                            </ul>
+                            </ul> -->
+                            
                         </div>
                         <div class="body">
-                            <canvas id="myChart" width="400" height="400"></canvas>
+                            <canvas id="myChart" width="800" height="400"></canvas>
                         
                             <?php 
                                 foreach($brg as $c):
@@ -173,71 +174,96 @@
 
                 <!-- real shit -->
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
+
+
+
+        </div>
+
+        <!-- start new row -->
+        <div class="row clearfix p-t-10"> 
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
                         <div class="header">
                             <h2>CHART Transaksi</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
-                        <div class="body">
-                        <canvas id="myChart3" width="400" height="400"></canvas>
-                        <?php 
-                            foreach($kre as $k):
-                                $tgl[] = $k['MONTHNAME(tgl_kre)'];
-                                $tot_brgKre[] = $k['jumlahKre'];
-                                foreach($trs as $t):
-                                    $tot_brg[] = $t['jumlahTunai'];
+                    </div>  <!-- end header -->
+
+                    <div class="body">
+                        <canvas id="myChart3" width="800" height="400"></canvas>
+                        <!-- script chart php -->
+                        <?php
+                            $tahun = 2019;
+                            $months = array();
+                            $transaksi = array();
+                            $kredit = array();
+                            for($m = 1; $m <= 12; $m++ ){
+                                $month = date('M', mktime(0,0,0,$m,1));
+                                $trs = $this->M_grafik->get_data_trans($m, $tahun);
+                                $kre = $this->M_grafik->get_data_kredit($m, $tahun);
+                                array_push($months, $month);
+                                array_push($transaksi, $trs);
+                                array_push($kredit, $kre);
+                                
+                            }
+                            $months = json_encode($months);
+                            $transaksi = json_encode($transaksi);
+                            $kredit = json_encode($kredit);
                         ?>
-                            <script>
+
+                        <!-- script chart js -->
+                        <script>
                             var ctx = document.getElementById('myChart3').getContext('2d');
                             var myChart = new Chart(ctx, {
-                                type: 'line',
+                                type: 'bar',
                                 data: {
-                                    labels:<?php echo json_encode($tgl);?>,
+                                    labels:<?php echo $months; ?>,
                                     datasets: [{
                                         label: "Transaksi Kredit",
-                                        data: <?php echo json_encode($tot_brgKre);?>,
+                                        // data: [28, 48, 40, 0, 86, 27, 90, 10, 54, 32, 15, 11],
+                                        data: <?php echo $transaksi; ?>,
                                         borderColor: 'rgba(0, 188, 212, 0.75)',
                                         backgroundColor: 'rgba(0, 188, 212, 0.3)',
                                         pointBorderColor: 'rgba(0, 188, 212, 0)',
                                         pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
                                         pointBorderWidth: 1
-                                    }, {
-                                    
-                                            label: "Transaksi Tunai",
-                                            data: <?php echo json_encode($tot_brg);?>,
-                                            borderColor: 'rgba(233, 30, 99, 0.75)',
-                                            backgroundColor: 'rgba(233, 30, 99, 0.3)',
-                                            pointBorderColor: 'rgba(233, 30, 99, 0)',
-                                            pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
-                                            pointBorderWidth: 1
-                                        }]
+                                    },{
+                                        label: "Transaksi Kredit",
+                                        data: <?php echo $kredit; ?>,
+                                        borderColor: 'rgba(233, 30, 99, 0.75)',
+                                        backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                                        pointBorderColor: 'rgba(233, 30, 99, 0)',
+                                        pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                                        pointBorderWidth: 1
+                                    }
+                                ]
                                 },
                             
                                 options: {
                                     responsive: true,
-                                    legend: false
+                                    legend: false,
+
+                                    scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            userCallback: function(label, index, labels) {
+                                                // when the floored value is the same as the value we have a whole number
+                                                if (Math.floor(label) === label) {
+                                                    return label;
+                                                }
+
+                                            },
+                                        }
+                                    }],
+                                },
+
                                 }
                             });
-                            </script>
-                            <?php 
-                                endforeach;
-                                endforeach; 
-                            ?>
-                        </div>
-                    </div>
-                </div>
+                        </script>
+
+                    </div>  <!-- end body -->
+                </div><!-- end col -->
 
         </div>
 

@@ -216,7 +216,6 @@ Class Laporanpdf extends CI_Controller{
             $pdf->Cell(20,6,$row->sisa_kre,1,0,'C');
             $pdf->Cell(35,6,$row->tgl_kre,1,0,'C');
             $pdf->Cell(25,6,$row->status,1,1,'C');
-             
         }
         $pdf->Output();
         // }
