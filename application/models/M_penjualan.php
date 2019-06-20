@@ -28,6 +28,7 @@
         //untuk grafik
         public function get_trs3(){
             $this->db->select('tgl_trans, COUNT(tgl_trans) as jumlahTunai, MONTHNAME(tgl_trans)');
+            // $this->db->where('Year(tgl_trans)', $tahun);
             $this->db->group_by('Month(tgl_trans)'); 
             return $this->db->get('trans')->result_array();
         }
