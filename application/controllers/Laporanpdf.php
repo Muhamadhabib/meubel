@@ -193,7 +193,7 @@ Class Laporanpdf extends CI_Controller{
 
         $pdf->SetFont('Arial','',10);
         
-        $kredit = $this->M_kredit->get_kre2();
+        $kredit = $this->M_kredit->get_kre3();
         foreach ($kredit as $row){
             $pdf->Cell(20,6,$row->id_kre,1,0,'C');
             $pdf->Cell(30,6,$row->nm_plg,1,0,'C'); 
@@ -206,7 +206,6 @@ Class Laporanpdf extends CI_Controller{
             $pdf->Cell(20,6,$row->sisa_kre,1,0,'C');
             $pdf->Cell(35,6,$row->tgl_kre,1,0,'C');
             $pdf->Cell(25,6,$row->status,1,1,'C');
-             
         }
         $pdf->Output();
         // }

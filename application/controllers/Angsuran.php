@@ -41,7 +41,20 @@
                     'status' => 'lunas',
                 );
                 $this->M_angsur->ubah_kredit($idplg,$kredit);
-            }else{
+                $this->session->set_flashdata('input','Disimpan'); 
+            }else if($bayar<0){
+                $data = array(
+                    'ang_kre1' => null,
+                    'ang_kre2' => null,
+                    'ang_kre3' => null,
+                    'ang_kre4' => null,
+                    'ang_kre5' => null,
+                    'ang_kre6' => null,
+                    'ang_tgl'  => date('y/m/d h:i:s'),
+                );
+                $this->session->set_flashdata('gagal','Pembayaran gagal');
+            }
+            else{
                 $data = array(
                     'ang_kre1' => $ang1,
                     'ang_kre2' => $ang2,
@@ -51,6 +64,7 @@
                     'ang_kre6' => $ang6,
                     'ang_tgl'  => date('y/m/d h:i:s'),
                 );
+                $this->session->set_flashdata('input','Disimpan'); 
             }
             // $data = array(
             //     'ang_kre1' => $ang1,
@@ -64,7 +78,7 @@
             //echo $bayar;
             $this->M_angsur->ubah_angsur($id,$data);
             //$this->M_angsur->ubah_kredit($idplg,$kredit);
-            $this->session->set_flashdata('input','Disimpan'); 
+            
             redirect('angsuran');
         }
     }
