@@ -90,7 +90,7 @@
         public function get_trans(){
             $this->db->select('*');
             $this->db->from('pelanggan');
-            $this->db->join('transaksi', 'transaksi.id_plg = pelanggan.id_plg');
+            $this->db->join('trans', 'trans.id_plg = pelanggan.id_plg');
             return $this->db->get()->result_array();
         }
 
@@ -103,5 +103,6 @@
             $this->db->where('nama_jenis',$nama);
             return $this->db->get('jenis')->num_rows();
         }
+
     }
 ?>
