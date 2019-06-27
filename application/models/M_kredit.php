@@ -34,8 +34,7 @@
         public function get_kre3(){
             $this->db->select('*');
             $this->db->from('kredit');
-            //$this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
-
+            $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
             $this->db->join('angsuran', 'angsuran.plg = kredit.id_plg');
             return $this->db->get()->result();
         }
@@ -54,6 +53,6 @@
             $this->db->join('barang', 'barang.id_brg = pesan2.id_brg');
             return $this->db->get()->result();
         }
-       
+    
     }
 ?>

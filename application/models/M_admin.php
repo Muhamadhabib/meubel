@@ -103,5 +103,11 @@
             $this->db->where('nama_jenis',$nama);
             return $this->db->get('jenis')->num_rows();
         }
+
+        public function get_stok($id){
+            $this->db->select("stok_brg");
+            $this->db->where("id_brg", $id);
+            return $this->db->get("barang")->row()->stok_brg;
+        }
     }
 ?>

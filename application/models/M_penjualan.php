@@ -66,5 +66,9 @@
             $this->db->where('id_plg',$nama);
             return $this->db->get('kredit')->num_rows();
         }
+        public function update_stok($id, $data){
+            $this->db->where('id_brg', $id);
+            $this->db->update('barang', $data);
+        }
     }
 ?>

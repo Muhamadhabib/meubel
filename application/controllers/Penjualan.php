@@ -47,8 +47,10 @@
             redirect('penjualan');
         }
         public function simpan(){
+            $this->load->model("M_admin");
             date_default_timezone_set('Asia/Jakarta');
             $cart = $this->cart->contents();
+            
             foreach($cart as $z){
                 $dat = array(
                     'id_plg' => $this->input->post('plg'),
@@ -56,7 +58,15 @@
                     'jml_brg'=> $z['qty'],
                     'sub_tot'=> $z['subtotal'],
                 );
+                $stok = $this->M_admin->get_stok($dat['id_brg']);
+                $jml = $dat['jml_brg'];
+                $stok = $stok - $jml;
+                $update = array(
+                    'stok_brg' => $stok,
+                );
+                $this->M_penjualan->update_stok($dat['id_brg'], $update);
                 $this->M_penjualan->input_pesan($dat);
+                
             }
             $data = array(
                 'id_plg'   => $this->input->post('plg'),
@@ -64,6 +74,7 @@
                 'tot_hrg'  => $this->input->post('hrg'),
                 'tgl_trans'=> date('y/m/d h:i:s'),
             );
+            
             $this->M_penjualan->input_trans($data);
             $this->session->set_flashdata('input','Disimpan');
             $this->cart->destroy();

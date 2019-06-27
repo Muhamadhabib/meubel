@@ -13,6 +13,5 @@
             return $this->db->get("kredit")->num_rows();
         }
 
-
     }
 ?>
