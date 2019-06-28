@@ -153,7 +153,7 @@
                                 <!-- <button type="submit" class=" btn btn-success btn-sm waves-effect">
                                     <i class="material-icons">shopping_cart</i>
                                 </button> -->
-                                <a href="<?= base_url();?>" class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
+                                <a href="<?= base_url();?>kredit/del_pesankre/<?= $b['id_psn2'] ?>"  class="btn btn-danger btn-sm waves-effect" onclick="return confirm('yakin?');" ><i class="material-icons">delete</i></a>
                             </td>
                             </tr>
                             </form>
