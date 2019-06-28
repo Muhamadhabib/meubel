@@ -38,6 +38,7 @@
                     'ang_tgl'  => date('y/m/d h:i:s'),
                 );
                 $kredit = array(
+                    'sisa_kre' => $bayar,
                     'status' => 'lunas',
                 );
                 $this->M_angsur->ubah_kredit($idplg,$kredit);
@@ -64,6 +65,10 @@
                     'ang_kre6' => $ang6,
                     'ang_tgl'  => date('y/m/d h:i:s'),
                 );
+                $kredit = array(
+                    'sisa_kre' => $bayar,
+                );
+                $this->M_angsur->ubah_kredit($idplg,$kredit);
                 $this->session->set_flashdata('input','Disimpan'); 
             }
             // $data = array(

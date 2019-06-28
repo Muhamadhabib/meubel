@@ -35,7 +35,6 @@
             $this->db->select('*');
             $this->db->from('kredit');
             $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
-
             $this->db->join('angsuran', 'angsuran.plg = kredit.id_plg');
             return $this->db->get()->result();
         }
@@ -59,6 +58,5 @@
             $this->db->where('id_psn2', $id);
             $this->db->delete('pesan2');
         }  
-       
     }
 ?>
