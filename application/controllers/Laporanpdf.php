@@ -171,9 +171,9 @@ Class Laporanpdf extends CI_Controller{
         // setting jenis font yang akan digunakan
         $pdf->SetFont('Arial','B',16);
         // mencetak string 
-        $pdf->Cell(280,7,'BUKAN TOKO TEBU',0,1,'C');
+        $pdf->Cell(400,7,'BUKAN TOKO TEBU',0,1,'C');
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(280,7,'DAFTAR BARANG TERSEDIA',0,1,'C');
+        $pdf->Cell(400,7,'DAFTAR BARANG TERSEDIA',0,1,'C');
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10,7,'',0,1);
         $pdf->SetFont('Arial','B',10);

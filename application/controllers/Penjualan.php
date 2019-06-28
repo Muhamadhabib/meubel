@@ -5,6 +5,7 @@
             parent::__construct();
             $this->load->library('cart');
             $this->load->model("M_penjualan");
+            $this->load->model("M_admin");
         }
         public function index(){
             $data['judul'] = 'Transaksi';
@@ -128,6 +129,13 @@
             $this->load->view("data_pjl",$data);
             $this->load->view("footer");
         }
+        //hapus transaksi
+        public function del_trans($id){
+            $this->M_penjualan->del_trans($id);
+            $this->session->set_flashdata('hapus','Dihapus');
+            redirect('transaksi');
+        }
+
         public function pesanan(){
             $data['judul'] = 'Data Pesanan';
             $data['trs'] = $this->M_penjualan->get_psn();
@@ -135,5 +143,11 @@
             $this->load->view("data_psn",$data);
             $this->load->view("footer");
         }
+        // hapus pesanan
+        public function del_pesan($id){
+            $this->M_penjualan->del_pesanan($id);
+            $this->session->set_flashdata('hapus','Dihapus');
+            redirect('/penjualan/pesanan');
+        }  
     }
 ?>
