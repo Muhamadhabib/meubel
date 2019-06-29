@@ -47,6 +47,19 @@
             $this->db->join('barang', 'barang.id_brg = pesan.id_brg');
             return $this->db->get()->result();
         }
+        //hapus data transaksi
+
+        public function del_trans($id){
+            $this->db->where('id_trans', $id);
+            $this->db->delete('trans');
+        }
+
+        //hapus data pesananan
+        public function del_pesanan($id){
+            $this->db->where('id_psn', $id);
+            $this->db->delete('pesan');
+        }        
+
         public function input_trans($data){
             $this->db->insert('trans', $data);
         }

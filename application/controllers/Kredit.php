@@ -24,5 +24,11 @@
             $this->load->view("angsur_v");
             $this->load->view("footer");
         }
+        //hapus pesanan kredit
+        public function del_pesankre($id){
+            $this->M_kredit->del_pesankre($id);
+            $this->session->set_flashdata('hapus','Dihapus');
+            redirect('/kredit/pesanan');
+        }  
     }
 ?>
