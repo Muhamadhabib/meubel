@@ -18,6 +18,7 @@
             $this->load->view("footer");
         }
         public function add(){
+            $this->load->model("M_admin");
             $data = array(
                 'id'    => $this->input->post('id'),
                 'name'  => $this->input->post('nama'),
@@ -25,7 +26,11 @@
                 'price' => $this->input->post('harga'),
                 'qty'   => $this->input->post('qty'),
             );
-            $this->cart->insert($data);
+            if($this->M_admin->get_stok($data['id']) > 0 ){
+                $this->cart->insert($data);
+            }else{
+                $this->session->set_flashdata("kosong", "stok kosong");
+            }
             redirect('penjualan');
         }
         public function update(){
@@ -58,6 +63,7 @@
                     'jml_brg'=> $z['qty'],
                     'sub_tot'=> $z['subtotal'],
                 );
+                
                 $stok = $this->M_admin->get_stok($dat['id_brg']);
                 $jml = $dat['jml_brg'];
                 $stok = $stok - $jml;
@@ -66,7 +72,6 @@
                 );
                 $this->M_penjualan->update_stok($dat['id_brg'], $update);
                 $this->M_penjualan->input_pesan($dat);
-                
             }
             $data = array(
                 'id_plg'   => $this->input->post('plg'),
@@ -81,6 +86,7 @@
             redirect('penjualan');
         }
         public function simpan2(){
+            $this->load->model("M_admin");
             date_default_timezone_set('Asia/Jakarta');
             $cart = $this->cart->contents();
             foreach($cart as $z){
@@ -90,6 +96,13 @@
                     'jml_brg'=> $z['qty'],
                     'sub_tot'=> $z['subtotal'],
                 );
+                $stok = $this->M_admin->get_stok($dat['id_brg']);
+                $jml = $dat['jml_brg'];
+                $stok = $stok - $jml;
+                $update = array(
+                    'stok_brg' => $stok,
+                );
+                $this->M_penjualan->update_stok($dat['id_brg'], $update);
                 $this->M_penjualan->input_pesan2($dat);
             }
             $bln = $this->input->post('bln');

@@ -94,6 +94,13 @@
     <!-- #END# Left Sidebar -->
 </section>
 
+<?php
+    $tahun = date('Y');
+    if(isset($_GET['tahun'])){
+        $tahun = $_GET['tahun'];
+    }
+?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -185,7 +192,30 @@
                 <div class="card">
                     <div class="header">
                         <div class="header">
-                            <h2>CHART Transaksi</h2>
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-sm-12">
+                                    <h2>CHART Transaksi</h2>
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                <form action="">
+                                    <label for="tahun">Pilih Tahun: </label>
+                                    <select name="tahun" id="tahun">
+                                    <?php
+                                        for($i=2015; $i<=2025; $i++){
+                                        $selected = ($i==$tahun)?'selected':'';
+                                        echo "
+                                            <option value='".$i."' ".$selected.">".$i."</option>
+                                        ";
+                                        }
+                                    ?>
+                                    </select>
+                                
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
+                                </form>
+                                </div>
+                            </div>
                         </div>
                     </div>  <!-- end header -->
 
@@ -193,7 +223,7 @@
                         <canvas id="myChart3" width="800" height="400"></canvas>
                         <!-- script chart php -->
                         <?php
-                            $tahun = 2019;
+                            // $tahun = 2019;
                             $months = array();
                             $transaksi = array();
                             $kredit = array();
