@@ -112,6 +112,12 @@
             Data <?= $this->session->flashdata('hapus'); ?>
             </div>
         <?php endif; ?>
+        <?php if ($this->session->flashdata('kosong')) : ?>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Gagal menambahkan, <?= $this->session->flashdata('kosong'); ?>
+            </div>
+        <?php endif; ?>
 
         <!-- <a href="<?= base_url();?>barang/tambah" class="btn btn-primary btn-lg waves-effect">TAMBAH</a> -->
         <!-- <button type="button" class="btn btn-primary btn-lg waves-effect">TAMBAH</button> -->
