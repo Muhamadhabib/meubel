@@ -6,6 +6,7 @@
         public function get_plg(){
             $this->db->select('*');
             $this->db->from('kredit');
+            // $this->db->where('status !=', 'lunas');
             $this->db->join('pelanggan', 'pelanggan.id_plg = kredit.id_plg');
             return $this->db->get()->result_array();
         }
