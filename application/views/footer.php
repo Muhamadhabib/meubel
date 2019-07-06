@@ -1,5 +1,8 @@
-<!-- Jquery Core Js -->
-<script src="<?= base_url();?>asset/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 
 <!-- Bootstrap Core Js -->
 <script src="<?= base_url();?>asset/plugins/bootstrap/js/bootstrap.js"></script>
@@ -21,18 +24,29 @@
 <script src="<?= base_url();?>asset/plugins/morrisjs/morris.js"></script>
 
 <!-- ChartJs -->
-<script src="<?= base_url();?>asset/plugins/chartjs/Chart.bundle.js"></script>
 
 
-<!-- Flot Charts Plugin Js -->
-<script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.js"></script>
-<script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.resize.js"></script>
-<script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.pie.js"></script>
-<script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.categories.js"></script>
-<script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.time.js"></script>
+<!-- DataTables -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-<!-- Sparkline Chart Plugin Js -->
-<script src="<? base_url();?>asset/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <script type="text/javascript">
+        function notif(){
+            swal({
+            title: "Apakah Anda Ingin Keluar?",
+            icon: "warning",
+            buttons: ["Tidak", "Ya"],
+            dangerMode: true,
+            })
+            .then((result) => {
+                if (result) {
+                    location.href = "<?= base_url();?>login/logout";
+                }
+            });
+        }
+    </script>
+
+
 
 <!-- Custom Js -->
 <script src="<?= base_url();?>asset/js/admin.js"></script>

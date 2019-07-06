@@ -131,7 +131,7 @@
                                     </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
+                                        <button type="submit" onclicik="myFunction()" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
                                     </div>
                                 <div class="col-sm-12">
                                     <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
@@ -210,6 +210,13 @@
                                             <label class="form-label">Tagihan/bulan</label>
                                         </div>
                                     </div>
+                                    <script>
+                                    function myFunction(){
+                                        var bayar = document.getElementById("tagihan2").value;
+                                        var bulat = bayar.toFixed(1);
+                                        document.getElementById("tagihan2").value = bulat;
+                                    }
+                                    </script>
                                     <?php
                                         if($k['status']=='belum lunas'):
                                     ?>

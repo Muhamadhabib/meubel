@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
+    <!-- DataTables -->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+
     <!-- Bootstrap Core Css -->
     <link href="<?= base_url();?>asset/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -33,22 +36,21 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?= base_url();?>asset/css/themes/all-themes.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
-    <script type="text/javascript">
-        function notif(){
-            swal({
-            title: "Apakah Anda Ingin Keluar?",
-            icon: "warning",
-            buttons: ["Tidak", "Ya"],
-            dangerMode: true,
-            })
-            .then((result) => {
-                if (result) {
-                    location.href = "<?= base_url();?>login/logout";
-                }
-            });
-        }
-    </script>
+    
+    <script src="<?= base_url();?>asset/plugins/jquery/jquery.min.js"></script>
+
+    <script src="<?= base_url();?>asset/plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="<?= base_url();?>asset/plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="<? base_url();?>asset/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
 </head>
 
 <body class="theme-red">
