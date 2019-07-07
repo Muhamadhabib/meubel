@@ -7,6 +7,7 @@
             $this->load->model('M_penjualan');
             $this->load->model('M_kredit');
             $this->load->model('M_grafik');
+            $this->load->model('M_angsur');
         }
         public function index(){
             // $this->input->get('tahun');

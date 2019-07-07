@@ -96,6 +96,7 @@
 
 <?php
     $tahun = date('Y');
+    $bulan = date('m');
     if(isset($_GET['tahun'])){
         $tahun = $_GET['tahun'];
     }
@@ -291,6 +292,66 @@
                                 }
                             });
                         </script>
+
+                    </div>  <!-- end body -->
+                </div><!-- end col -->
+
+        </div>
+
+        <div class="row clearfix p-t-10"> 
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="header">
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-sm-12">
+                                    <h2>Kerugian Bulan Ini</h2>
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                <!-- <form action="">
+                                    <label for="tahun">Pilih Tahun: </label>
+                                    <select name="tahun" id="tahun">
+                                    <?php
+                                        for($i=2015; $i<=2025; $i++){
+                                        $selected = ($i==$tahun)?'selected':'';
+                                        echo "
+                                            <option value='".$i."' ".$selected.">".$i."</option>
+                                        ";
+                                        }
+                                    ?>
+                                    </select>
+                                
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
+                                </form> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>  <!-- end header -->
+
+                    <div class="body">
+                        <!-- <canvas id="myChart3" width="800" height="400"></canvas> -->
+                        <!-- script chart php -->
+                        <?php
+                            // $tahun = 2019;
+                            
+                            $rugi = $this->M_angsur->get_rugi($bulan);
+                            foreach($rugi->result() as $r){
+                                $tot_bln_ini = $r->total_bulan_ini;
+                            }
+                            $tagihan = $this->M_angsur->get_total_tagihan_perbulan($bulan);
+                            foreach($tagihan->result() as $z){
+                                $tot_tagihan = $z->total_tagihan;
+                            }
+
+                            echo $tot_bln_ini - $tot_tagihan;
+                        ?>
+
+                        
+
+                        <!-- script chart js -->
+                        
 
                     </div>  <!-- end body -->
                 </div><!-- end col -->
