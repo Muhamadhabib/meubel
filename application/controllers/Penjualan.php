@@ -108,6 +108,7 @@
             }
             $bln = $this->input->post('bln');
             $kre = $this->input->post('hrg')-$this->input->post('dp');
+            $tgl_kre = date('y/m/d h:i:s');
             $data = array(
                 'id_plg'   => $this->input->post('plg'),
                 'tot_brg'  => $this->input->post('brg'),
@@ -115,11 +116,18 @@
                 'dp_hrg'   => $this->input->post('dp'),
                 'bln_kre'  => $this->input->post('bln'),
                 'sisa_kre' => ($this->input->post('hrg')-$this->input->post('dp')),
-                'tgl_kre'  => date('y/m/d h:i:s'),
+                'tgl_kre'  => $tgl_kre,
                 'status'   => "belum lunas",
             );
             $ang = array(
                 'plg'   => $this->input->post('plg'),
+                'tempo1'   => date('y/m/d', strtotime("30 days")),
+                'tempo2'   => date('y/m/d', strtotime("60 days")),
+                'tempo3'   => date('y/m/d', strtotime("90 days")),
+                'tempo4'   => date('y/m/d', strtotime("120 days")),
+                'tempo5'   => date('y/m/d', strtotime("150 days")),
+                'tempo6'   => date('y/m/d', strtotime("180 days")),
+                'per_bln'  => round($kre/$bln,2),
                 'ang_bln'  => $bln,
                 'tagihan'  => ($this->input->post('hrg')-$this->input->post('dp')),
                 'ang_tgl'  => date('y/m/d h:i:s'),

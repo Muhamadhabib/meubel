@@ -134,21 +134,22 @@
                                         <button type="submit" onclicik="myFunction()" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
                                     </div>
                                 <div class="col-sm-12">
-                                    <table class="table table-responsive table-bordered table-condensed table-hover table-striped">
+                                    <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
                                         <thead>
                                             <tr>
                                             <th scope="col">No.</th>
-                                            <th scope="col">Nama Pelanggan</th>
+                                            <th scope="col">Nama</th>
                                             <th scope="col">Bulan</th>
                                             <th scope="col">Tagihan</th>
-                                            <th scope="col">Angsuran 1</th>
-                                            <th scope="col">Angsuran 2</th>
-                                            <th scope="col">Angsuran 3</th>
-                                            <th scope="col">Angsuran 4</th>
-                                            <th scope="col">Angsuran 5</th>
-                                            <th scope="col">Angsuran 6</th>
+                                            <th scope="col">Angsur-1</th>
+                                            <th scope="col">Angsur-2</th>
+                                            <th scope="col">Angsur-3</th>
+                                            <th scope="col">Angsur-4</th>
+                                            <th scope="col">Angsur-5</th>
+                                            <th scope="col">Angsur-6</th>
                                             <th scope="col">Tanggal</th>
                                             <th scope="col">Status</th>
+                                            <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -27,19 +27,27 @@
             $this->load->view("footer");
         }
         public function input(){
-            if($this->M_admin->cek_barang()>0){
-                $data = [
-                    'nama_brg'  => $this->input->post('nama'),
-                    'id_jenis' => $this->input->post('jenis'),
-                    'deskripsi' => $this->input->post('desk'),
-                    'stok_brg' => $this->input->post('stok'),
-                    'harga_beli' => $this->input->post('h_beli'),
-                    'harga_jual' => $this->input->post('h_jual')
-                ];
+            $data = [
+                'nama_brg'  => $this->input->post('nama'),
+                'id_jenis' => $this->input->post('jenis'),
+                'deskripsi' => $this->input->post('desk'),
+                'stok_brg' => $this->input->post('stok'),
+                'harga_beli' => $this->input->post('h_beli'),
+                'harga_jual' => $this->input->post('h_jual')
+            ];
+            // if($this->M_admin->cek_barang($this->input->post('nama'))){
+                
+            //     $this->M_admin->input($data);
+            //     $this->session->set_flashdata('input','Ditambahkan');
+            // }else {
+            //     redirect('index');
+            // }
+            // redirect('barang');
+            if($this->M_admin->cek_barang($this->input->post('nama'))){
+                $this->session->set_flashdata('cek','Sudah Ada');
+            }else{
                 $this->M_admin->input($data);
                 $this->session->set_flashdata('input','Ditambahkan');
-            }else {
-                redirect('index');
             }
             redirect('barang');
         }
@@ -59,7 +67,7 @@
         public function hapus($id){
             $this->M_admin->delete_barang($id);
             $this->session->set_flashdata('hapus','Dihapus');
-            redirect(barang);
+            redirect('barang');
         }
     }
 ?>
