@@ -35,17 +35,11 @@
                 'harga_beli' => $this->input->post('h_beli'),
                 'harga_jual' => $this->input->post('h_jual')
             ];
-            // if($this->M_admin->cek_barang($this->input->post('nama'))){
-                
-            //     $this->M_admin->input($data);
-            //     $this->session->set_flashdata('input','Ditambahkan');
-            // }else {
-            //     redirect('index');
-            // }
-            // redirect('barang');
+
             if($this->M_admin->cek_barang($this->input->post('nama'))){
                 $this->session->set_flashdata('cek','Sudah Ada');
             }else{
+
                 $this->M_admin->input($data);
                 $this->session->set_flashdata('input','Ditambahkan');
             }
