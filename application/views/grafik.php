@@ -94,12 +94,7 @@
     <!-- #END# Left Sidebar -->
 </section>
 
-<?php
-    $tahun = date('Y');
-    if(isset($_GET['tahun'])){
-        $tahun = $_GET['tahun'];
-    }
-?>
+
 
 <section class="content">
     <div class="container-fluid">
@@ -181,7 +176,18 @@
 
                 <!-- real shit -->
 
-
+<?php
+    $tahun = date('Y');
+    $tahun2 = date('Y');
+    $tahun3 = date('Y');
+    if(isset($_GET['tahun']) ){
+        $tahun = $_GET['tahun'];
+    }else if(isset($_GET['tahun2'])){
+        $tahun2 = $_GET['tahun2'];
+    }else if(isset($_GET['tahun3'])){
+        $tahun2 = $_GET['tahun3'];
+    }
+?>
 
 
         </div>
@@ -197,7 +203,7 @@
                                     <h2>CHART Transaksi</h2>
                                 </div>
                                 <div class="col-lg-4 col-sm-12">
-                                <form action="">
+                                <form action="" id="tahun">
                                     <label for="tahun">Pilih Tahun: </label>
                                     <select name="tahun" id="tahun">
                                     <?php
@@ -307,14 +313,14 @@
                                     <h2>Kerugian per Bulan</h2>
                                 </div>
                                 <div class="col-lg-4 col-sm-12">
-                                <!-- <form action="">
-                                    <label for="tahun">Pilih Tahun: </label>
-                                    <select name="tahun" id="tahun">
+                                <form action="" id="tahun2">
+                                    <label for="tahun2">Pilih Tahun: </label>
+                                    <select name="tahun2" id="tahun2">
                                     <?php
-                                        for($i=2015; $i<=2025; $i++){
-                                        $selected = ($i==$tahun)?'selected':'';
+                                        for($j=2015; $j<=2025; $j++){
+                                        $selected2 = ($j==$tahun2)?'selected':'';
                                         echo "
-                                            <option value='".$i."' ".$selected.">".$i."</option>
+                                            <option value='".$j."' ".$selected2.">".$j."</option>
                                         ";
                                         }
                                     ?>
@@ -323,7 +329,7 @@
                                 </div>
                                 <div class="col-lg-4 col-sm-12">
                                     <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
-                                </form> -->
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -333,15 +339,15 @@
                         <canvas id="myChart4" width="800" height="400"></canvas>
                         <!-- script chart php -->
                         <?php
-                            // $tahun = 2019;
+                            // $thn = 2019;
 
                             $krg = array();
                             $bln = array();
                             for($b = 1; $b <= 12; $b++ ){
                                 $bulan = date('M', mktime(0,0,0,$b,1));
                                 array_push($bln, $bulan);
-                                $rugi = $this->M_angsur->get_rugi($b);
-                                $tagihan = $this->M_angsur->get_total_tagihan_perbulan($b);
+                                $rugi = $this->M_angsur->get_rugi($b, $tahun2);
+                                $tagihan = $this->M_angsur->get_total_tagihan_perbulan($b, $tahun2);
                                 $kurangan = abs($rugi-$tagihan);
                                 array_push($krg, $kurangan);
                                 
@@ -377,7 +383,22 @@
                                 },
                                 options: {
                                     responsive: true,
-                                    legend: false
+                                    legend: false,
+
+                                    scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            userCallback: function(label, index, labels) {
+                                                // when the floored value is the same as the value we have a whole number
+                                                if (Math.floor(label) === label) {
+                                                    return label;
+                                                }
+
+                                            },
+                                        }
+                                    }],
+                                },
                                 }
                             });
                         </script>
@@ -386,6 +407,111 @@
                 </div><!-- end col -->
 
         </div>
+
+
+        <div class="row clearfix p-t-10"> 
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="header">
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-sm-12">
+                                    <h2>Keuntungan Tunai per Bulan</h2>
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                <form action="" id="tahun2">
+                                    <label for="tahun3">Pilih Tahun: </label>
+                                    <select name="tahun3" id="tahun3">
+                                    <?php
+                                        for($k=2015; $k<=2025; $k++){
+                                        $selected3 = ($k==$tahun3)?'selected':'';
+                                        echo "
+                                            <option value='".$k."' ".$selected3.">".$k."</option>
+                                        ";
+                                        }
+                                    ?>
+                                    </select>
+                                
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Pilih</button>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  <!-- end header -->
+
+                    <div class="body">
+                        <canvas id="myChart5" width="800" height="400"></canvas>
+                        <!-- script chart php -->
+                        <?php
+                            // $thn = 2019;
+
+                            $utg = array();
+                            $bln2 = array();
+                            for($b = 1; $b <= 12; $b++ ){
+                                $bulan2 = date('M', mktime(0,0,0,$b,1));
+                                array_push($bln2, $bulan2);
+                                $untung = $this->M_penjualan->get_untung($b, $tahun3);
+                                array_push($utg, $untung);
+                                
+                            }
+                            $utg = json_encode($utg);
+                            $bln2 = json_encode($bln2);
+                            
+                            // foreach($rugi->result() as $r){
+                            //     $tot_bln_ini = $r->total_bulan_ini;
+                            // }
+                            
+                            // foreach($tagihan->result() as $z){
+                            //     $tot_tagihan = $z->total_tagihan;
+                            // }
+
+                            // echo $tot_bln_ini - $tot_tagihan;
+                            
+                        ?>
+
+                        <!-- script chart js -->
+                        <script>
+                            var ctx = document.getElementById('myChart5').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: <?php echo $bln2; ?>,
+                                    datasets: [{
+                                        label: "Keuntungan",
+                                        data: <?php echo $utg; ?>,
+                                        backgroundColor: 'rgba(0, 240, 0, 0.8)'
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    legend: false,
+
+                                    scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            userCallback: function(label, index, labels) {
+                                                // when the floored value is the same as the value we have a whole number
+                                                if (Math.floor(label) === label) {
+                                                    return label;
+                                                }
+
+                                            },
+                                        }
+                                    }],
+                                },
+                                }
+                            });
+                        </script>
+
+                    </div>  <!-- end body -->
+                </div><!-- end col -->
+
+        </div>
+
+    </div>
 
     </div>
 </section>

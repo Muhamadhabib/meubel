@@ -200,7 +200,7 @@
                     </div>
                     <div class="body">
                         
-                        <table class="table table-responsive table-bordered table-condensed table-hover table-striped" id="myTable">
+                        <table class="table table-responsive table-bordered table-condensed table-hover table-striped">
                         <thead>
                             <tr>
                             <th scope="col">No.</th>
