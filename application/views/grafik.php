@@ -96,7 +96,6 @@
 
 <?php
     $tahun = date('Y');
-    $bulan = date('m');
     if(isset($_GET['tahun'])){
         $tahun = $_GET['tahun'];
     }
@@ -305,7 +304,7 @@
                         <div class="header">
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-sm-12">
-                                    <h2>Kerugian Bulan Ini</h2>
+                                    <h2>Kerugian per Bulan</h2>
                                 </div>
                                 <div class="col-lg-4 col-sm-12">
                                 <!-- <form action="">
@@ -331,27 +330,57 @@
                     </div>  <!-- end header -->
 
                     <div class="body">
-                        <!-- <canvas id="myChart3" width="800" height="400"></canvas> -->
+                        <canvas id="myChart4" width="800" height="400"></canvas>
                         <!-- script chart php -->
                         <?php
                             // $tahun = 2019;
-                            
-                            $rugi = $this->M_angsur->get_rugi($bulan);
-                            foreach($rugi->result() as $r){
-                                $tot_bln_ini = $r->total_bulan_ini;
-                            }
-                            $tagihan = $this->M_angsur->get_total_tagihan_perbulan($bulan);
-                            foreach($tagihan->result() as $z){
-                                $tot_tagihan = $z->total_tagihan;
-                            }
 
-                            echo $tot_bln_ini - $tot_tagihan;
+                            $krg = array();
+                            $bln = array();
+                            for($b = 1; $b <= 12; $b++ ){
+                                $bulan = date('M', mktime(0,0,0,$b,1));
+                                array_push($bln, $bulan);
+                                $rugi = $this->M_angsur->get_rugi($b);
+                                $tagihan = $this->M_angsur->get_total_tagihan_perbulan($b);
+                                $kurangan = abs($rugi-$tagihan);
+                                array_push($krg, $kurangan);
+                                
+                            }
+                            $krg = json_encode($krg);
+                            $bln = json_encode($bln);
+                            
+                            // foreach($rugi->result() as $r){
+                            //     $tot_bln_ini = $r->total_bulan_ini;
+                            // }
+                            
+                            // foreach($tagihan->result() as $z){
+                            //     $tot_tagihan = $z->total_tagihan;
+                            // }
+
+                            // echo $tot_bln_ini - $tot_tagihan;
                         ?>
 
                         
 
                         <!-- script chart js -->
-                        
+                        <script>
+                            var ctx = document.getElementById('myChart4').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: <?php echo $bln; ?>,
+                                    datasets: [{
+                                        label: "Kerugian",
+                                        data: <?php echo $krg; ?>,
+                                        backgroundColor: 'rgba(240, 10, 12, 0.8)'
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    legend: false
+                                }
+                            });
+                        </script>
 
                     </div>  <!-- end body -->
                 </div><!-- end col -->
