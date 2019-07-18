@@ -37,12 +37,12 @@
             $this->db->update('kredit', $data2);
         }
 
-        public function get_rugi($bulan){
-            return $this->db->query("SELECT SUM(CASE WHEN MONTH(tempo1) = $bulan THEN ang_kre1 WHEN MONTH(tempo2) = $bulan THEN ang_kre2 WHEN MONTH(tempo3) = $bulan THEN ang_kre3 WHEN MONTH(tempo4) = $bulan THEN ang_kre4 WHEN MONTH(tempo5) = $bulan THEN ang_kre5 WHEN MONTH(tempo1) = $bulan THEN ang_kre6 END)AS total_bulan_ini FROM angsuran")->row()->total_bulan_ini;
+        public function get_rugi($bulan, $tahun){
+            return $this->db->query("SELECT SUM(CASE WHEN MONTH(tempo1) = $bulan AND YEAR(tempo1) = $tahun THEN ang_kre1 WHEN MONTH(tempo2) = $bulan AND YEAR(tempo2) = $tahun THEN ang_kre2 WHEN MONTH(tempo3) = $bulan AND YEAR(tempo3) = $tahun THEN ang_kre3 WHEN MONTH(tempo4) = $bulan AND YEAR(tempo4) = $tahun THEN ang_kre4 WHEN MONTH(tempo5) = $bulan AND YEAR(tempo5) = $tahun THEN ang_kre5 WHEN MONTH(tempo6) = $bulan AND YEAR(tempo6) = $tahun THEN ang_kre6 END)AS total_bulan_ini FROM angsuran")->row()->total_bulan_ini;
         }
 
-        public function get_total_tagihan_perbulan($bulan){
-            return $this->db->query("SELECT SUM(CASE WHEN MONTH(tempo1) = $bulan THEN per_bln WHEN MONTH(tempo2) = $bulan THEN per_bln WHEN MONTH(tempo3) = $bulan THEN per_bln WHEN MONTH(tempo4) = $bulan THEN per_bln WHEN MONTH(tempo5) = $bulan THEN per_bln WHEN MONTH(tempo1) = $bulan THEN per_bln END)AS total_tagihan FROM angsuran")->row()->total_tagihan;
+        public function get_total_tagihan_perbulan($bulan, $tahun){
+            return $this->db->query("SELECT SUM(CASE WHEN MONTH(tempo1) = $bulan AND YEAR(tempo1) = $tahun THEN per_bln WHEN MONTH(tempo2) = $bulan AND YEAR(tempo2) = $tahun THEN per_bln WHEN MONTH(tempo3) = $bulan AND YEAR(tempo3) = $tahun THEN per_bln WHEN MONTH(tempo4) = $bulan AND YEAR(tempo4) = $tahun THEN per_bln WHEN MONTH(tempo5) = $bulan AND YEAR(tempo5) = $tahun THEN per_bln WHEN MONTH(tempo6) = $bulan AND YEAR(tempo6) = $tahun THEN per_bln END)AS total_tagihan FROM angsuran")->row()->total_tagihan;
         }
     }
 ?>

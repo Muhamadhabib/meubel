@@ -83,5 +83,12 @@
             $this->db->where('id_brg', $id);
             $this->db->update('barang', $data);
         }
+        public function get_untung($bulan, $tahun){
+            $this->db->select('SUM(barang.harga_jual - barang.harga_beli) AS keuntungan');
+            $this->db->join('pesan','barang.id_brg = pesan.id_brg');
+            $this->db->where('MONTH(pesan.tgl_pesan)', $bulan);
+            $this->db->where('YEAR(pesan.tgl_pesan)', $tahun);
+            return $this->db->get('barang')->row()->keuntungan;
+        }
     }
 ?>

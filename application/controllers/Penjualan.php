@@ -63,6 +63,7 @@
                     'id_brg' => $z['id'],
                     'jml_brg'=> $z['qty'],
                     'sub_tot'=> $z['subtotal'],
+                    'tgl_pesan'=> date('y/m/d h:i:s'),
                 );
                 
                 $stok = $this->M_admin->get_stok($dat['id_brg']);
