@@ -43,17 +43,6 @@
                 );
                 $this->M_angsur->ubah_kredit($idplg,$kredit);
                 $this->session->set_flashdata('input','Disimpan'); 
-            }else if($bayar<0){
-                $data = array(
-                    'ang_kre1' => null,
-                    'ang_kre2' => null,
-                    'ang_kre3' => null,
-                    'ang_kre4' => null,
-                    'ang_kre5' => null,
-                    'ang_kre6' => null,
-                    'ang_tgl'  => date('y/m/d h:i:s'),
-                );
-                $this->session->set_flashdata('gagal','Pembayaran gagal');
             }
             else{
                 $data = array(

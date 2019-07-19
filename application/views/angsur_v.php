@@ -216,14 +216,14 @@
                                     ?>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="ang_satu" name="ang_satu" value="<?= $k['ang_kre1']; ?>"/>
+                                            <input type="number" class="form-control" id="ang_satu" name="ang_satu" max="<?= $k['tagihan']/$k['ang_bln']; ?>" value="<?= $k['ang_kre1']; ?>"/>
                                             <label class="form-label">Angsuran 1</label>
                                         </div>
                                     </div>
                                     <?php if(!$k['ang_kre1']==0): ?>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="ang_dua" name="ang_dua" value="<?= $k['ang_kre2']; ?>"/>
+                                            <input type="number" class="form-control" id="ang_dua" name="ang_dua" max="<?= $k['tagihan']/$k['ang_bln']; ?>" value="<?= $k['ang_kre2']; ?>"/>
                                             <label class="form-label">Angsuran 2</label>
                                         </div>
                                     </div>
@@ -231,7 +231,7 @@
                                     <?php if(!$k['ang_kre2']==0): ?>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="ang_tiga" name="ang_tiga" value="<?= $k['ang_kre3']; ?>"/>
+                                            <input type="number" class="form-control" id="ang_tiga" name="ang_tiga" max="<?= $k['tagihan']/$k['ang_bln']; ?>" value="<?= $k['ang_kre3']; ?>"/>
                                             <label class="form-label">Angsuran 3</label>
                                         </div>
                                     </div>
@@ -239,7 +239,7 @@
                                     <?php if(!$k['ang_kre3']==0): ?>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="ang_empat" name="ang_empat" value="<?= $k['ang_kre4']; ?>"/>
+                                            <input type="number" class="form-control" id="ang_empat" name="ang_empat" max="<?= $k['tagihan']/$k['ang_bln']; ?>" value="<?= $k['ang_kre4']; ?>"/>
                                             <label class="form-label">Angsuran 4</label>
                                         </div>
                                     </div>
@@ -247,7 +247,7 @@
                                     <?php if(!$k['ang_kre4']==0): ?>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="ang_lima" name="ang_lima" value="<?= $k['ang_kre5']; ?>"/>
+                                            <input type="number" class="form-control" id="ang_lima" name="ang_lima" max="<?= $k['tagihan']/$k['ang_bln']; ?>" value="<?= $k['ang_kre5']; ?>"/>
                                             <label class="form-label">Angsuran 5</label>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@
                                     <?php if(!$k['ang_kre5']==0): ?>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="ang_enam" name="ang_enam" value="<?= $k['ang_kre6']; ?>"/>
+                                            <input type="number" class="form-control" id="ang_enam" name="ang_enam" max="<?= $k['tagihan']/$k['ang_bln']; ?>" value="<?= $k['ang_kre6']; ?>"/>
                                             <label class="form-label">Angsuran 6</label>
                                         </div>
                                     </div>
